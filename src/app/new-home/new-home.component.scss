@@ -1,0 +1,96 @@
+// h4 {
+//     color: white;
+// }
+// .button {
+//     border: 0;
+//     color: white;
+//     background: rgb(208, 84, 84);
+//     padding: 10px;
+// }
+// .button:hover{
+//     background: rgb(68, 188, 228);
+    
+// }
+// .aa {
+//     background-color: rgb(221, 221, 221);
+// }
+
+.container-with-background {
+    background-image: url('../../assets/images/home2.jpg'); /* Replace with the path to your image */
+    background-size: cover; /* Adjust as needed */
+    background-position: center center; /* Adjust as needed */
+    background-repeat: no-repeat; /* Adjust as needed */
+    /* Additional styling for the container if needed */
+    height: 600px;
+ }
+ /* Define the gradient background for the button */
+.button-gradient {
+    background: linear-gradient(to bottom, #00b7ff, #0066ff); /* Change these color codes to your desired gradient colors */
+    color: #fff; /* Text color for the button */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: none; /* Remove the button border if needed */
+    border-radius: 35px; /* Add border-radius for rounded corners */
+    cursor: pointer; /* Show a pointer cursor on hover */
+    transition: background 0.3s ease; /* Smooth transition for the background color on hover */
+    padding-left: 30px;
+    padding-right: 30px;
+    
+  }
+  
+  /* Style the button on hover (optional) */
+  .button-gradient:hover {
+    background: linear-gradient(to bottom, #ff4500, #ff8c00); /* Change these color codes to your desired hover gradient colors */
+  }
+
+  .wpcf7-submit {
+    background-image: linear-gradient(to right,#ff00cc 0%,#333399 51%,#ff00cc 100%);
+    background-size: 200% auto;
+    color: #ffffff !important;
+    border-radius: 22px;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: uppercase;
+    border: none !important;
+    transition: 0.7s all;
+    -webkit-transition: 0.7s all;
+    //margin-top: 10px;
+    display: inline-block;
+    width: 192px;
+    height: 40px;
+    box-shadow: 0 5px 10px black;
+}
+.wpcf7-submit:hover{
+  background-position: right center;
+
+}
+.card ul li{
+  list-style: none;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.card{
+  
+  background: #fff;
+  box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+  padding: 14px 80px 18px 36px;
+  cursor: pointer;
+}
+
+.card:hover{
+   transform: scale(1.05);
+   box-shadow: 0 10px 20px rgba(0,0,10,.22), 0 4px 8px rgba(0,0,0,.06);
+}
+
+// .homepage-boxes {
+//   padding: 110px 0;
+// }
+
+// .homepage-boxes .container {
+//     width: 100%;
+//     padding-right: 15px;
+//     padding-left: 15px;
+//     margin-right: auto;
+//     margin-left: auto;
+// }

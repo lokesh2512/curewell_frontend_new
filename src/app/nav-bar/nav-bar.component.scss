@@ -1,0 +1,73 @@
+.navbar-brand{
+    font-weight: bolder;
+}
+.navbar{
+    position: sticky;
+    top: 0;
+    z-index: 99999;
+}
+.nav-item a:hover {
+    background-color: white;
+    color: black;
+
+}
+
+// .button-gradient {
+//     background: linear-gradient(to bottom, #00b7ff, #0066ff); /* Change these color codes to your desired gradient colors */
+//     color: #fff; /* Text color for the button */
+//     padding: 10px 20px; /* Adjust padding as needed */
+//     border: none; /* Remove the button border if needed */
+//     border-radius: 35px; /* Add border-radius for rounded corners */
+//     cursor: pointer; /* Show a pointer cursor on hover */
+//     transition: background 0.3s ease; /* Smooth transition for the background color on hover */
+//     padding-left: 30px;
+//     padding-right: 30px;
+    
+//   }
+  
+//   /* Style the button on hover (optional) */
+//   .button-gradient:hover {
+//     background: linear-gradient(to bottom, #ff4500, #ff8c00); /* Change these color codes to your desired hover gradient colors */
+//   }
+.button .wpcf7-submit {
+    background-image: linear-gradient(to right,#ff00cc 0%,#333399 51%,#ff00cc 100%);
+    background-size: 200% auto;
+    color: #ffffff !important;
+    border-radius: 12px;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: uppercase;
+    border: none !important;
+    transition: 0.7s all;
+    -webkit-transition: 0.7s all;
+    margin-top: 5px;
+    display: inline-block;
+    width: 192px;
+    height: 40px;
+}
+.button .btn2wpcf7-submit {
+    background-image: linear-gradient(to right,#19386c 0% ,#60c2ef 51%,#4b76ba 100%);
+    background-size: 200% auto;
+    color: #ffffff !important;
+    border-radius: 12px;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: uppercase;
+    border: none !important;
+    transition: 0.7s all;
+    -webkit-transition: 0.7s all;
+    margin-top: 5px;
+    display: inline-block;
+    width: 192px;
+    height: 40px;
+}
+
+.button .wpcf7-submit:hover{
+    background-position: right center;
+
+}
+.button .btn2wpcf7-submit:hover{
+    background-position: right center;
+
+}
+  
