@@ -7,22 +7,22 @@
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="#" data-ol-has-click-handler="">Home
+            <a class="nav-link active" [routerLink]="['']"  [routerLinkActiveOptions]="{exact: true}" routerLinkActive="router-link-active" data-ol-has-click-handler="">Home
               <span class="visually-hidden">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" >View Doctors</a>
+            <a class="nav-link" [routerLink]="['ViewDoctor']" routerLinkActive="router-link-active" >View Doctors</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">View Specialisation</a>
+            <a class="nav-link" [routerLink]="['Specialization']" routerLinkActive="router-link-active">View Specialisation</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" y
+            <a class="nav-link" [routerLink]="['TodaySurgery']" routerLinkActive="router-link-active"
             >View Today's surgery</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Add Doctor</a>
+            <a class="nav-link" [routerLink]="['AddingDoctor']" routerLinkActive="router-link-active">Add Doctor</a>
           </li>
         </ul>
         <div class="d-flex justify">
