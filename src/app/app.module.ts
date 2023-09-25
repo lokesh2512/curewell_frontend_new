@@ -19,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 //import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NewsSectionComponent } from './allComponents/news-section/news-section.component';
 import { LandingPageComponent } from './allComponents/landing-page/landing-page.component';
+import { DoctorBySpecializationComponent } from './allComponents/doctor-by-specialization/doctor-by-specialization.component';
 
 
 
@@ -39,6 +40,7 @@ import { LandingPageComponent } from './allComponents/landing-page/landing-page.
     FooterComponent,
     NewsSectionComponent,
     LandingPageComponent,
+    DoctorBySpecializationComponent,
 
 
 
