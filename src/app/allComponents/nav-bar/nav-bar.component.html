@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#" ><img src="../../assets/images/MicrosoftTeams-image__5_-removebg-preview.png" width="200px" alt=""></a>
+      <a class="navbar-brand" [routerLink]="['']"  [routerLinkActiveOptions]="{exact: true}" routerLinkActive="router-link-active" ><img src="../../assets/images/MicrosoftTeams-image__5_-removebg-preview.png" width="200px" alt=""></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link active" [routerLink]="['']"  [routerLinkActiveOptions]="{exact: true}" routerLinkActive="router-link-active" data-ol-has-click-handler="">Home
+            <a class="nav-link active" [routerLink]="['']" routerLinkActive="router-link-active" data-ol-has-click-handler="">Home
               <span class="visually-hidden">(current)</span>
             </a>
           </li>

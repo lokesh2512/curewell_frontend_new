@@ -18,6 +18,7 @@ import { UpdateSurgeryComponent } from './allComponents/update-surgery/update-su
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 //import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NewsSectionComponent } from './allComponents/news-section/news-section.component';
+import { LandingPageComponent } from './allComponents/landing-page/landing-page.component';
 
 
 
@@ -37,6 +38,7 @@ import { NewsSectionComponent } from './allComponents/news-section/news-section.
     UpdateSurgeryComponent,
     FooterComponent,
     NewsSectionComponent,
+    LandingPageComponent,
 
 
 
