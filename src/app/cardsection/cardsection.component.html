@@ -4,14 +4,16 @@
       <div class="col-md-4">
         <div
           class="card border-primary"
-          style="border: 3px solid; border-radius: 20px"
+          style="border: 3px solid; border-radius: 20px; margin-top: 10px; height: 350px;"
+          
         >
-          <div class="card-title">
+          <div class="card-title" style="margin-top: 40px;">
             <h4>Opening Hours</h4>
           </div>
           <div class="card-body">
             <ul class="p-0 m-0 text-dark">
-              <li>Monday - Thursday <span>8.00 - 19.00</span></li>
+              <li>Monday<span>8.00 - 19.00</span></li>
+              <li>Tueday<span>8.00 - 19.00</span></li>
               <li>Friday <span>8.00 - 18.30</span></li>
               <li>Saturday <span>9.30 - 17.00</span></li>
               <li>Sunday <span>9.30 - 15.00</span></li>
@@ -26,15 +28,20 @@
             border: 3px solid lightslategray;
             border-top-right-radius: 30px;
             border-bottom-left-radius: 30px;
-            height: 255px;
-          "
+            margin-top: 10px;
+           
+            height: 350px;"
         >
-          <div class="card-title">
+          <div class="card-title" style="margin-top: 30px;">
             <h3>Emergency</h3>
           </div>
           <div class="card-body text-center">
             <button class="wpcf7-form-control wpcf7-submit">
-              <i class="bi-telephone-fill"></i>
+              <img
+                src="../../assets/images/emergency-call.png.webp"
+                alt="img"
+                style="margin-right: 1em"
+              />
               <a
                 href="tel:+129-3345355454"
                 style="text-decoration: none; color: white"
@@ -52,27 +59,246 @@
         </div>
       </div>
       <div class="col-md-4">
-        <div class="appointment-box card">
+        <!-- <div class="appointment-box card" style="margin-top: 10px">
           <h2 class="d-flex align-items-center">Make an Appointment</h2>
-          <form class="d-flex flex-wrap justify-content-between">
-            <select class="select-department">
-              <option value="value1">Select Department</option>
-              <option value="value2">Select Department 1</option>
-              <option value="value3">Select Department 2</option>
-            </select>
-            <select class="select-doctor">
-              <option>Select Doctor</option>
-              <option>Select Doctor 1</option>
-              <option>Select Doctor 2</option>
-            </select>
-            <input type="text" placeholder="Name" />
-            <input type="number" placeholder="Phone No" />
+          <form
+            class="d-flex flex-wrap justify-content-between"
+            [formGroup]="appointmentForm"
+            (ngSubmit)="OnSubmit()"
+          >
+            <div>
+              <select
+                class="select-department form-control"
+                formControlName="departMent"
+                [ngClass]="{
+                  error:
+                    (submitted || f['departMent'].touched) &&
+                    getControl('departMent').errors
+                }"
+              >
+                <option value="value1">Select Department</option>
+                <option value="value2">Select Department 1</option>
+                <option value="value3">Select Department 2</option>
+              </select>
+              <div
+                *ngIf="
+                  (submitted || f['departMent'].touched) &&
+                  f['departMent'].errors
+                "
+                class="text-danger small"
+              >
+                <span *ngIf="f['departMent'].errors?.['required']"
+                  >Department is required</span
+                >
+              </div>
+            </div>
+            <div>
+              <select
+                class="select-doctor form-control"
+                formControlName="doctor"
+                [ngClass]="{
+                  error:
+                    (submitted || f['doctor'].touched) &&
+                    getControl('doctor').errors
+                }"
+              >
+                <option>Select Doctor</option>
+                <option>Select Doctor 1</option>
+                <option>Select Doctor 2</option>
+              </select>
+              <div
+                *ngIf="(submitted || f['doctor'].touched) && f['doctor'].errors"
+                class="text-danger small"
+              >
+                <span *ngIf="f['doctor'].errors?.['required']"
+                  >Doctor is required</span
+                >
+              </div>
+            </div>
+            <div>
+              <input
+                class="form-control"
+                type="text"
+                placeholder="Name"
+                formControlName="name"
+                [ngClass]="{
+                  error:
+                    (submitted || f['name'].touched) &&
+                    getControl('name').errors
+                }"
+              />
+              <div
+                *ngIf="(submitted || f['name'].touched) && f['name'].errors"
+                class="text-danger small"
+              >
+                <span *ngIf="f['name'].errors?.['required']"
+                  >Name is required</span
+                >
+              </div>
+            </div>
+            <div>
+              <input
+                class="form-control"
+                type="number"
+                placeholder="Phone No"
+                formControlName="ContactNumber"
+                [ngClass]="{
+                  error:
+                    (submitted || f['ContactNumber'].touched) &&
+                    getControl('ContactNumber').errors
+                }"
+              />
+
+              <div
+                *ngIf="(submitted || f['ContactNumber'].touched) && f['ContactNumber'].errors"
+                class="text-danger small"
+              >
+                <span *ngIf="f['ContactNumber'].errors?.['required']"
+                  >Phone No. is required</span
+                >
+                <span
+                  *ngIf="f['ContactNumber'].errors?.['minlength'] || f['ContactNumber'].errors?.['maxlength']"
+                  >Contact No. must be of 10 digit</span
+                >
+              </div>
+            </div>
             <input
-              class="button gradient-bg"
+              class="button gradient-bg form-control"
               type="submit"
-              value="Boom Appointment"
+              value="BooK Appointment"
             />
           </form>
+        </div> -->
+        <div class="appointment-box card" style="margin-top: 10px">
+          
+          <h2 class="d-flex align-items-center">Make an Appointment</h2>
+            <form [formGroup]="appointmentForm" (ngSubmit)="OnSubmit()" class="d-flex flex-wrap justify-content-between">
+              <div class="card-body">
+                <div style="display: flex;justify-content:space-around;">
+                  <div class="mb-3" style="margin-right: 15px">
+                    <label class="form-label">Choose Department</label>
+                    <select
+                      class="form-control"
+                      formControlName="departMent"
+                      [ngClass]="{
+                        error:
+                          (submitted || f['departMent'].touched) &&
+                          getControl('departMent').errors
+                      }"
+                    >
+                      <option value="Department">
+                        ---select Department---
+                      </option>
+                      <option>Select Department 1</option>
+                      <option>Select Department 2</option>
+                      <option>Select Department 3</option>
+                    </select>
+                    <div
+                      *ngIf="
+                        (submitted || f['departMent'].touched) &&
+                        f['departMent'].errors
+                      "
+                      class="text-danger small text-center"
+                    >
+                      <span *ngIf="f['departMent'].errors?.['required']"
+                        >Department is required</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Choose Doctor</label>
+                    <select
+                      class="form-control"
+                      formControlName="doctor"
+                      [ngClass]="{
+                        error:
+                          (submitted || f['doctor'].touched) &&
+                          getControl('doctor').errors
+                      }"
+                    >
+                      <option value="doctor">---select doctor---</option>
+                      <option>Select Doctor 1</option>
+                      <option>Select Doctor 2</option>
+                      <option>Select Doctor 3</option>
+                    </select>
+                    <div
+                      *ngIf="
+                        (submitted || f['doctor'].touched) && f['doctor'].errors
+                      "
+                      class="text-danger small text-center"
+                    >
+                      <span *ngIf="f['doctor'].errors?.['required']"
+                        >Doctor field is required</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; justify-content: space-around;">
+                  <div class="mb-3" style="margin-right: 15px">
+                    <input
+                      type="text"
+                      placeholder=" Enter Name"
+                      class="form-control"
+                      formControlName="Patientname"
+                      [ngClass]="{
+                        error:
+                          (submitted || f['Patientname'].touched) &&
+                          getControl('Patientname').errors
+                      }"
+                    />
+                    <div
+                      *ngIf="
+                        (submitted || f['Patientname'].touched) &&
+                        f['Patientname'].errors
+                      "
+                      class="text-danger small text-center"
+                    >
+                      <span *ngIf="f['Patientname'].errors?.['required']"
+                        >Name is required</span
+                      >
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <input
+                      type="text"
+                      placeholder=" Enter Phone No."
+                      class="form-control"
+                      formControlName="ContactNumber"
+                      [ngClass]="{
+                        error:
+                          (submitted || f['ContactNumber'].touched) &&
+                          getControl('ContactNumber').errors
+                      }"
+                    />
+                    <div
+                      *ngIf="
+                        (submitted || f['ContactNumber'].touched) &&
+                        f['ContactNumber'].errors
+                      "
+                      class="text-danger small text-center"
+                    >
+                      <span *ngIf="f['ContactNumber'].errors?.['required']"
+                        >Phone No is required</span
+                      >
+                      <span
+                        *ngIf="f['ContactNumber'].errors?.['minlength'] || f['ContactNumber'].errors?.['maxlength']"
+                        >Contact No. must be of 10 digit</span
+                      >
+                      <span *ngIf="f['ContactNumber'].errors?.['pattern']"
+                        >.Please enter valid contact no</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3 text-center">
+                  <button class="button gradient-bg">
+                    Book Appointment
+                  </button>
+                </div>
+              </div>
+            </form>
+          
         </div>
       </div>
     </div>
