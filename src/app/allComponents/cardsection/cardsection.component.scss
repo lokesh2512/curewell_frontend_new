@@ -1,5 +1,5 @@
 .wpcf7-submit {
-    background-image: linear-gradient(to right,#ff00cc 0%,#333399 51%,#ff00cc 100%);
+   
     background-size: 200% auto;
     color: #ffffff !important;
     border-radius: 22px;
@@ -9,10 +9,10 @@
     border: none !important;
     transition: 0.7s all;
     -webkit-transition: 0.7s all;
-    //margin-top: 10px;
+    margin-top: 10px;
     display: inline-block;
-    width: 192px;
-    height: 40px;
+    width: 200px;
+    height: 50px;
     box-shadow: 0 5px 10px black;
 }
 .wpcf7-submit:hover{
@@ -47,7 +47,7 @@
 }
 .appointment-box form select, .appointment-box form input[type="text"], .appointment-box form input[type="number"] {
   display: block;
-  width: calc(50% - 5px);
+  width: calc(80% - 5px);
   padding: 12px 16px;
   margin-bottom: 10px;
   border: 0;

@@ -9,13 +9,15 @@ import { CardsectionComponent } from './allComponents/cardsection/cardsection.co
 import { TileSectionComponent } from './allComponents/tile-section/tile-section.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CurewellService } from './services/curewell.service';
-import { FormsModule } from '@angular/forms';
 import { ViewDoctorComponent } from './allComponents/view-doctor/view-doctor.component';
 import { AddDoctorComponent } from './allComponents/add-doctor/add-doctor.component';
 import { UpdateDoctorComponent } from './allComponents/update-doctor/update-doctor.component';
 import { ViewSpecializationComponent } from './allComponents/view-specialization/view-specialization.component';
 import { ViewTodaysSurgeryComponent } from './allComponents/view-todays-surgery/view-todays-surgery.component';
 import { UpdateSurgeryComponent } from './allComponents/update-surgery/update-surgery.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+//import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NewsSectionComponent } from './allComponents/news-section/news-section.component';
 
 
 
@@ -33,16 +35,24 @@ import { UpdateSurgeryComponent } from './allComponents/update-surgery/update-su
     ViewSpecializationComponent,
     ViewTodaysSurgeryComponent,
     UpdateSurgeryComponent,
-    FooterComponent
+    FooterComponent,
+    NewsSectionComponent,
+
+
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
-    
+    FormsModule,
+
+    ReactiveFormsModule
+
+
   ],
-  providers: [HttpClientModule,CurewellService],
+  providers: [HttpClientModule, CurewellService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
