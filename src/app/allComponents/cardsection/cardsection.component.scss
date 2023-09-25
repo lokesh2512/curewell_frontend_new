@@ -1,24 +1,24 @@
-.wpcf7-submit {
-   
-    background-size: 200% auto;
-    color: #ffffff !important;
-    border-radius: 22px;
-    font-weight: 400;
-    font-size: 14px;
-    text-transform: uppercase;
-    border: none !important;
-    transition: 0.7s all;
-    -webkit-transition: 0.7s all;
-    margin-top: 10px;
-    display: inline-block;
-    width: 200px;
-    height: 50px;
-    box-shadow: 0 5px 10px black;
-}
-.wpcf7-submit:hover{
-  background-position: right center;
+// .wpcf7-submit {
+//     background-image: linear-gradient(to right,#ff00cc 0%,#333399 51%,#ff00cc 100%);
+//     background-size: 200% auto;
+//     color: #ffffff !important;
+//     border-radius: 22px;
+//     font-weight: 400;
+//     font-size: 12px;
+//     text-transform: uppercase;
+//     border: none !important;
+//     transition: 0.7s all;
+//     -webkit-transition: 0.7s all;
+//     //margin-top: 10px;
+//     display: inline-block;
+//     width: 192px;
+//     height: 40px;
+//     box-shadow: 0 5px 10px black;
+// }
+// .wpcf7-submit:hover{
+//   background-position: right center;
 
-}
+// }
 .card ul li{
   list-style: none;
   padding: 5px;
@@ -45,9 +45,9 @@
   border: 2px solid #dde4ea;
   border-radius: 20px;
 }
-.appointment-box form select, .appointment-box form input[type="text"], .appointment-box form input[type="number"] {
+.appointment-box form select, .appointment-box form input[type="text"]{
   display: block;
-  width: calc(80% - 5px);
+  width: calc(100% - 5px);
   padding: 12px 16px;
   margin-bottom: 10px;
   border: 0;
@@ -60,12 +60,7 @@
 button, input {
   overflow: visible;
 }
-button, input, optgroup, select, textarea {
-  margin: 0;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-}
+
 .appointment-box form input[type="submit"] {
   margin-top: 16px;
 }
@@ -75,7 +70,7 @@ button, input, optgroup, select, textarea {
   color: #fff;
 }
 .button {
-  padding: 12px 50px 10px;
+  padding: 10px 25px 5px;
   margin-right: 32px;
   border: 0;
   border-bottom: 3px solid #18a3eb; //(0%, #32c8fa), color-stop(100%, rgba(88,125,228,1)

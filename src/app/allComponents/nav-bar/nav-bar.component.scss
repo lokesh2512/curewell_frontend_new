@@ -7,11 +7,29 @@
     z-index: 99999;
 }
 .nav-item a:hover {
-    background-color: white;
-   
-    color: black;
+    background-color: rgb(144, 222, 228);
+   border-radius: 5px;
+    color: black
 
 }
+.navbar-nav .nav-item .nav-link {
+    font-size: 16px; /* Set the default font size */
+    /* Set the default text color to white */
+    font-weight: 400;
+    transition: all 0.3s ease; /* Add a smooth transition effect */
+  }
+  
+  .navbar-nav .nav-item .nav-link:active,
+  .navbar-nav .nav-item .nav-link:focus
+  {
+    
+    font-size: 18px; /* Increase font size on click/hover */
+    /* Set text color to white on click/hover */
+    color: white;
+   font-weight: 800;
+
+  }
+  
 
 // .button-gradient {
 //     background: linear-gradient(to bottom, #00b7ff, #0066ff); /* Change these color codes to your desired gradient colors */
