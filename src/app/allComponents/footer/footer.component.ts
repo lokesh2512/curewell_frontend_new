@@ -12,7 +12,7 @@ export class FooterComponent implements OnInit {
   url!: SafeResourceUrl;
   constructor(private sanitizer:DomSanitizer){}
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    
   }
 
   loadHereMap(){
