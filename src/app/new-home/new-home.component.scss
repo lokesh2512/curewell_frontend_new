@@ -25,8 +25,9 @@
  }
  /* Define the gradient background for the button */
 .button-gradient {
-    background: linear-gradient(to bottom, #00b7ff, #0066ff); /* Change these color codes to your desired gradient colors */
-    color: #fff; /* Text color for the button */
+    border-color: transparent;
+    background: linear-gradient(to right,#32c8fa 0%,rgba(88,125,228,1)100%);
+    color: #fff;
     padding: 10px 20px; /* Adjust padding as needed */
     border: none; /* Remove the button border if needed */
     border-radius: 35px; /* Add border-radius for rounded corners */
@@ -39,11 +40,10 @@
   
   /* Style the button on hover (optional) */
   .button-gradient:hover {
-    background: linear-gradient(to bottom, #ff4500, #ff8c00); /* Change these color codes to your desired hover gradient colors */
-  }
+    background: linear-gradient(to right, rgba(88,125,228,1) 0%, #32c8fa 100%);  }
 
   .wpcf7-submit {
-    background-image: linear-gradient(to right,#ff00cc 0%,#333399 51%,#ff00cc 100%);
+    background: linear-gradient(to right,#32c8fa 0%,rgba(88,125,228,1)100%);
     background-size: 200% auto;
     color: #ffffff !important;
     border-radius: 22px;

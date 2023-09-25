@@ -3,6 +3,7 @@
     background: url("../../assets/images/BackgroundCard.png") no-repeat;
     
     background-size: cover;
+    
 }
 .our-departments-wrap {
     padding: 60px 80px 80px;
@@ -63,4 +64,8 @@
     font-weight: bold;
     text-transform: uppercase;
     color: #fff;
+    text-decoration: none;
+}
+.our-departments-cont .entry-footer a :hover{
+    background: linear-gradient(to right, );
 }
