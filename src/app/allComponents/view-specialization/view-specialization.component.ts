@@ -22,7 +22,7 @@ export class ViewSpecializationComponent implements OnInit{
       error => {
         console.log(error);
       },
-      ()=> console.log("Success")
+      ()=> console.log("Succe")
     )
   }
 

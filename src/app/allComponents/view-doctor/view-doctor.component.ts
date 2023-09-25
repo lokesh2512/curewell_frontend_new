@@ -36,7 +36,7 @@ export class ViewDoctorComponent implements OnInit {
 
   //To Move from this component to Edit Doctor component with data
   EditDoctor(doctor: Doctor) {
-    this.router.navigate(['/edit', doctor.DoctorId,doctor.DoctorName]);
+    this.router.navigate(['/edit', doctor.DoctorId, doctor.DoctorName]);
   }
 
 }
