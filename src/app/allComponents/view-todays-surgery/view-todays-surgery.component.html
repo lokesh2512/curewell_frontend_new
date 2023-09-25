@@ -1,40 +1,36 @@
-<h2 align="center" style="margin-top: 2%;">
-    View Today's Surgery
-  </h2>
-  <div class="body" *ngIf="(surgery.length>0)">
-    <div class="table-responsive">
-  
-      <table align="center" class="table" style="border:2px solid rgba(220,230,242,1);">
-        <tr style="background-color: #2724AC; opacity: 78%; color: white; font-size:12pt">
-          <th>Surgery Id</th>
-          <th>Doctor Id</th>
-          <th>Surgery Date</th>
-          <th>End Time</th>
-          <th>Start Time</th>
-          <th>Surgery Category</th>
-          <th style="text-align:center" colspan="1">Action</th>
-        </tr>
-  
-        <tr *ngFor="let sur of surgery" style="background-color:white">
-  
-          <td>{{sur.SurgeryId}}</td>
-          <td>{{sur.DoctorId}}</td>
-          <td>{{sur.SurgeryDate | date:"dd/MM/yyyy"}}</td>
-          <td>{{sur.EndTime}}</td>
-          <td>{{sur.StartTime}}</td>
-          <td>
-            <span *ngIf="sur.SurgeryCategory">{{ sur.SurgeryCategory }}</span>
-            <span *ngIf="!sur.SurgeryCategory">Not Available</span></td>
-          <td>
-            <!--Add angular form logic here-->
-            <button class="btn" style="margin-left: 30%;font-weight: bold;" (click)="editSurgeryTime(sur)">Edit Surgery Time</button>
-          </td>
-        </tr>
+<div class="container" style="margin-top: 2%;">
+  <h2 align="center">View Today's Surgery</h2>
+  <div class="body" *ngIf="surgery.length > 0">
+    <div class="table-responsive" style="max-height: 400px; overflow: auto;">
+      <table class="table table-bordered" style="border: 2px solid rgb(0, 0, 0);">
+          <tr style="position: sticky;border: 2px solid rgb(0, 0, 0); top: 0; background-color: #ffffff !important; font-size: 12pt">
+            <th>Surgery Id</th>
+            <th>Doctor Id</th>
+            <th>Surgery Date</th>
+            <th>End Time</th>
+            <th>Start Time</th>
+            <th>Surgery Category</th>
+            <th>Action</th>
+          </tr>
+          <tr *ngFor="let sur of surgery;">
+            <td>{{sur.SurgeryId}}</td>
+            <td>{{sur.DoctorId}}</td>
+            <td>{{sur.SurgeryDate | date:"dd/MM/yyyy"}}</td>
+            <td>{{sur.EndTime}}</td>
+            <td>{{sur.StartTime}}</td>
+            <td>
+              <span *ngIf="sur.SurgeryCategory" class="category-cell">{{sur.SurgeryCategory}}</span>
+              <span *ngIf="!sur.SurgeryCategory" class="category-cell">Not Available</span>
+            </td>
+            <td>
+              <button class="editBtn" (click)="editSurgeryTime(sur)" style="background-color:#37BEF7; color: rgb(255, 255, 255)">Edit Surgery Time</button>
+            </td>
+          </tr>
       </table>
-      
     </div>
   </div>
-  <div *ngIf="!(surgery.length>0)">
+  <div *ngIf="!(surgery.length > 0)">
     <br />
-    <h3 class="jumbotron" style="text-align:center; background-color:white" >No Surgery Details Available</h3>
+    <div class="jumbotron text-center" style="background-color: white;">No Surgery Details Available</div>
   </div>
+</div>

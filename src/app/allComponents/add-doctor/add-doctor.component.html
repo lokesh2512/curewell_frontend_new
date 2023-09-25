@@ -1,24 +1,20 @@
-<div class="row title" align="center" style="margin-left: 43%; margin-top: 10%;">
-    <h2 style="color:#2724AC;" align="center">Add New Doctor</h2>
+<div class="container" align="center" style="margin:8%;">
+  <h2 class="card-title" style="color: #000000; margin-bottom: 2%;">Add New Doctor</h2>
+  <div class="card" style="margin-left: 20%; margin-right: 18%;">
+    <div class="card-body">
+      <form style="margin: 5.7%;">
+        <div class="form-group row">
+          <label for="doctorName" class="col-sm-3 col-form-label">Doctor Name</label>
+          <div class="col-sm-7">
+            <input type="text" [(ngModel)]="name" class="form-control" id="doctorName" name="doctorName" placeholder="Enter Doctor Name">
+          </div>
+        </div>
+        <div class="form-group text-center" style="margin-top: 2%;">
+          <button class="btn" type="submit" (click)="addDoctor(name)" style="background-color: #37BEF7;margin-right: 2%; color: aliceblue;">Add Doctor</button>
+          <button class="btn" [routerLink]="['/ViewDoctor']" routerLinkActive="router-link-active" style="background-color: #37BEF7;color: aliceblue;">Cancel</button>
+        </div>
+      </form>
+      <div style="color: red; text-align: center;"></div>
     </div>
-    <!--Add angular form logic here-->
-    <form align="center"  style=" margin-bottom: 5.7%">
-      <table align="center">
-        <tr>
-          <th align="justify" > <label>Doctor Name</label> </th>
-          <th>
-            <!--Add angular form logic here-->
-            <input type="text" style="margin-left:3%;" [(ngModel)]="name" class="form-control cwinput" name="doctorName" placeholder="Enter Doctor Name">
-          </th>
-        </tr>
-        <tr>
-          <th></th>
-          <th align="center">
-            <button class="btn " type="submit"  style="margin: 3%; background-color:  #2724AC; opacity: 78%; color: white;" (click)="addDoctor(name)">Add Doctor</button>
-            <button class="btn " style="margin: 3%;background-color:  #2724AC; opacity: 78%; color: white;" [routerLink]="['/ViewDoctor']" routerLinkActive="router-link-active" >Cancel</button>
-          </th>
-    
-      </table>
-      <div style="color:red;text-align:center;">
-      </div>
-    </form>
+  </div>
+</div>
