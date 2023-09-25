@@ -7,6 +7,7 @@ import { ViewDoctorComponent } from './allComponents/view-doctor/view-doctor.com
 import { UpdateDoctorComponent } from './allComponents/update-doctor/update-doctor.component';
 import { UpdateSurgeryComponent } from './allComponents/update-surgery/update-surgery.component';
 import { LandingPageComponent } from './allComponents/landing-page/landing-page.component';
+import { DoctorBySpecializationComponent } from './allComponents/doctor-by-specialization/doctor-by-specialization.component';
 
 const routes: Routes = [
   { path: "", component: LandingPageComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: "Specialization", component: ViewSpecializationComponent },
   { path: "TodaySurgery", component: ViewTodaysSurgeryComponent },
   { path: "ViewDoctor", component: ViewDoctorComponent },
+  {path:"bySpecialization/:code",component: DoctorBySpecializationComponent},
   { path: "edit/:DoctorId/:DoctorName", component: UpdateDoctorComponent },
   { path:"editsurgery/:DoctorId/:EndTime/:StartTime/:SurgeryCategory/:SurgeryDate/:SurgeryId", component: UpdateSurgeryComponent}
 

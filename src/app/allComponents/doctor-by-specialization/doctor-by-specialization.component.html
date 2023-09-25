@@ -6,16 +6,18 @@
       <thead style="position: sticky; top: 0; font-size: 12pt">
         <tr class="view-doctor-head">
           <th>Doctor Id</th>
-          <th>Doctor Name</th>
+          <th>Specialization Code</th>
+          <th>Specialization Date</th>
           <th style="text-align: center" colspan="2">Action</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let doctor of doctorList; let i = index">
           <td>{{doctor.DoctorId}}</td>
-          <td>{{doctor.DoctorName}}</td>
+          <td>{{doctor.SpecializationCode}}</td>
+          <td>{{doctor.SpecializationDate | date: "dd/MM/yyyy"}}</td>
           <td>
-            <button class="editBtn" style="margin-left: 40%;background-color: #37BEF7; color: white;" (click)="EditDoctor(doctor)">Edit Doctor Details</button>
+            <button class="editBtn" style="margin-left: 40%;background-color: #37BEF7; color: white;" [routerLink]="['/Specialization']" routerLinkActive="router-link-active" >Back</button>
           </td>
         </tr>
       </tbody>
@@ -27,3 +29,4 @@
   <br />
   <h3 class="jumbotron" style="text-align: center; background-color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">No Doctor Available</h3>
 </div>
+
