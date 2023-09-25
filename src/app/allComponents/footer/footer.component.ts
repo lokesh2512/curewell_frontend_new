@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 //import {} from '@fortawesome/fontawesome-svg-core'
-import {DomSanitizer,SafeResourceUrl} from '@angular/platform-browser';
-
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -9,15 +7,9 @@ import {DomSanitizer,SafeResourceUrl} from '@angular/platform-browser';
 })
 export class FooterComponent implements OnInit {
 
-  url!: SafeResourceUrl;
-  constructor(private sanitizer:DomSanitizer){}
   ngOnInit(): void {
     
   }
 
-  loadHereMap(){
-    this.url = this.sanitizer.bypassSecurityTrustResourceUrl("")
-  }
-
-
+  
 }

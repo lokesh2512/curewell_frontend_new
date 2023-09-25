@@ -1,0 +1,24 @@
+<div class="row title" align="center" style="margin-left: 43%; margin-top: 10%;">
+    <h2 style="color:#2724AC;" align="center">Add New Doctor</h2>
+    </div>
+    <!--Add angular form logic here-->
+    <form align="center"  style=" margin-bottom: 5.7%">
+      <table align="center">
+        <tr>
+          <th align="justify" > <label>Doctor Name</label> </th>
+          <th>
+            <!--Add angular form logic here-->
+            <input type="text" style="margin-left:3%;" [(ngModel)]="name" class="form-control cwinput" name="doctorName" placeholder="Enter Doctor Name">
+          </th>
+        </tr>
+        <tr>
+          <th></th>
+          <th align="center">
+            <button class="btn " type="submit"  style="margin: 3%; background-color:  #2724AC; opacity: 78%; color: white;" (click)="addDoctor(name)">Add Doctor</button>
+            <button class="btn " style="margin: 3%;background-color:  #2724AC; opacity: 78%; color: white;" [routerLink]="['/ViewDoctor']" routerLinkActive="router-link-active" >Cancel</button>
+          </th>
+    
+      </table>
+      <div style="color:red;text-align:center;">
+      </div>
+    </form>
