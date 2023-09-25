@@ -1,0 +1,76 @@
+<div class="container" align="center">
+      
+    <h2 align="center" style="color:rgb(25, 116, 161); margin-top: 2%;">Update Surgery</h2>
+    <h2 style="color:rgb(25, 116, 161)">***************************</h2>
+    <form >
+      <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="col">
+              <label>Surgery Id</label>
+            </div>
+            <div class="col; input-group">
+              <!--Add angular form logic here-->
+              <input type="text" name="surgeryId" [(ngModel)]="surgeryId" class="form-control qkinput" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col">
+              <label>Doctor Id</label>
+            </div>
+            <div class="col; input-group">
+              <!--Add angular form logic here-->
+              <input type="text" name="doctorId" [(ngModel)]="doctorId" class="form-control qkinput" readonly>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col">
+              <label>Surgery Date</label>
+            </div>
+            <div class="col; input-group">
+              <!--Add angular form logic here-->
+              <input type="text" name="surgeryDate" [(ngModel)]="surgeryDate" class="form-control qkinput" readonly>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col">
+              <label>Start Time(24 Hours Format)</label>
+            </div>
+            <div class="col; input-group">
+              <input type="text" name="starttime" [(ngModel)]="startTime" class="form-control qkinput">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col">
+              <label>End Time(24 Hours Format)</label>
+            </div>
+            <div class="col; input-group">
+              <input type="text" name="endtime" [(ngModel)]="endTime" class="form-control qkinput"required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col">
+              <label>Surgery Category</label>
+            </div>
+            <div class="col; input-group">
+              <input type="text" name="surgeryCategory" [(ngModel)]="surgeryCategory" class="form-control qkinput"readonly>
+            </div>
+          </div>
+
+          <div class="form-group" style="text-align:center">
+            <button type="submit" (click)="updateSurgery(startTime,endTime)" class="btn"  style="margin: 2%;background-color:  #2724AC; opacity: 78%; color: white;">Update</button>
+            <button routerLink="/TodaySurgery" class="btn" style="background-color:  #2724AC; opacity: 78%; color: white;" >Cancel</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+      </div>
+    </form>
+  </div>
+

@@ -1,0 +1,28 @@
+<h2 align="center" style="margin-top: 2%;">
+    View Doctor
+  </h2>
+  <div class="body" style=" margin-left: 10%; margin-right: 10%;" *ngIf="(doctorList.length>0)">
+    <div class="table-responsive">
+  
+      <table align="center" class="table" style="border:2px solid rgba(220,230,242,1);">
+        <tr style="background-color: #2724AC; opacity: 78%;    color : white;  font-size:12pt">
+          <th>Doctor Id</th>
+          <th>Doctor Name</th>
+          <th style="text-align:center" colspan="2">Action</th>
+        </tr>
+  
+        <tr *ngFor="let doctor of doctorList"  style="background-color:rgb(255, 255, 255)">
+          <!--Add your logic here-->
+          <td>{{doctor.DoctorId}}</td>
+          <td>{{doctor.DoctorName}}</td>
+          <td> <button class="btn " style="margin-left: 40%;font-weight: bold;" (click)="EditDoctor(doctor)">Edit Doctor Details</button></td>
+        </tr>
+      </table>
+  
+    </div>
+  </div>
+  <div *ngIf="(doctorList.length==0)">
+    <br/>
+    <h3 class="jumbotron" style="text-align:center;background-color:white">No Doctor Available</h3>
+  </div>
+

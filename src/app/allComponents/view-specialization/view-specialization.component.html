@@ -1,0 +1,27 @@
+<h2 align="center"  style="margin-top: 2%;">
+    View Specialization
+  </h2>
+  <div *ngIf="specialization.length>0" class="body">
+    <div class="table-responsive">
+  
+      <table align="center" class="table" style="border:2px solid rgba(220,230,242,1);">
+        <tr style="background-color: #2724AC; opacity: 78%;    color : white; font-size:12pt">
+          <td>specialization code</td>
+          <td>specialization name</td>
+          <th style="text-align:center" colspan="1">Action</th>
+        </tr>
+  
+        <tr *ngFor="let spec of specialization" style="background-color:white">
+          <!--Add your logic here-->
+          <th>{{spec.SpecializationCode}}</th>
+          <th>{{spec.SpecializationName}}</th>
+          <td><button class="btn" style="margin-left: 38%;font-weight: bold;" [routerLink]="['/ViewDoctor']" routerLinkActive="router-link-active" >View Doctors</button></td>
+  </tr>
+      </table>
+  
+    </div>
+  </div>
+  <div *ngIf="!(specialization.length>0)">
+    <br />
+    <h3 class="jumbotron" style="text-align:center; background-color:white">No Specialization Available</h3>
+  </div>

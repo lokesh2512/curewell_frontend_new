@@ -1,318 +1,46 @@
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"
-      ><img
-        src="../../assets/images/MicrosoftTeams-image__5_-removebg-preview.png"
-        width="200px"
-        alt=""
-    /></a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarColor01"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarColor01">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link active" href="#" data-ol-has-click-handler=""
-            >Home
-            <span class="visually-hidden">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">View Doctors</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">View Specialisation</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" y>View Today's surgery</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Add Doctor</a>
-        </li>
-      </ul>
-      <div class="d-flex justify-content-end flex-column flex-md-row">
-        <div class="button" style="margin-right: 20px">
-          <button class="wpcf7-form-control wpcf7-submit">
-            <img
-              src="../../assets/images/emergency-call.png.webp"
-              alt=""
-              style="margin-right: 1em"
-            />
-            <a
-              href="tel:+129-3345355454"
-              style="text-decoration: none; color: white"
-              >+129-3345355454</a
-            >
-          </button>
-        </div>
-        <div class="button">
-          <button
-            class="wpcf7-form-control btn2wpcf7-submit"
-            data-bs-toggle="modal"
-            href="#exampleModalToggle"
-            role="button"
-          >
-            Login / SignUp
-          </button>
+    <div class="container-fluid">
+      <a class="navbar-brand" [routerLink]="['']"  [routerLinkActiveOptions]="{exact: true}" routerLinkActive="router-link-active" ><img src="../../assets/images/MicrosoftTeams-image__5_-removebg-preview.png" width="200px" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" [routerLink]="['']" routerLinkActive="router-link-active" data-ol-has-click-handler="">Home
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['ViewDoctor']" routerLinkActive="router-link-active" >View Doctors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['Specialization']" routerLinkActive="router-link-active">View Specialisation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['TodaySurgery']" routerLinkActive="router-link-active"
+            >View Today's surgery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['AddingDoctor']" routerLinkActive="router-link-active">Add Doctor</a>
+          </li>
+        </ul>
+        <div class="d-flex justify">
+          <!-- <button class="button-gradient">
+            <span><i class="bi-telephone-fill"></i></span>
+            <span class="text-light">+34 586 778 8892</span>
+          </button> -->
+          <div class="button" style="margin-right: 20px;">
+            <button class="wpcf7-form-control wpcf7-submit p-2" >
+              <i class="bi-telephone-fill"></i>
+              <a href="tel:+129-3345355454" style="text-decoration: none; color: white;" >+129-3345355454</a>
+            </button>
+          </div>
+          <div class="button">
+            <button class=" wpcf7-form-control btn2wpcf7-submit">Login / SignUp</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</nav>
-<div
-  class="modal fade"
-  id="exampleModalToggle"
-  aria-hidden="true"
-  aria-labelledby="exampleModalToggleLabel"
-  tabindex="-1"
->
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div
-        class="modal-header text-light"
-        style="
-          background: linear-gradient(
-            to right,
-            rgba(88, 125, 228, 1) 0%,
-            #32c8fa 100%
-          );
-        "
-      >
-        <h5 class="modal-title" id="exampleModalToggleLabel">LOGIN</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="LoginForm" (ngSubmit)="OnSubmit()">
-          <label class="form-label">User Name</label>
-          <input
-            type="text"
-            class="form-control"
-            formControlName="userName"
-            [ngClass]="{
-              error:
-                (submitted || f['userName'].touched) &&
-                getControl('userName').errors
-            }"
-          />
-          <div
-            *ngIf="(submitted || f['userName'].touched) && f['userName'].errors"
-            class="text-danger small"
-          >
-            <span *ngIf="f['userName'].errors?.['required']"
-              >Username is required</span
-            >
-          </div>
-          <label class="form-label">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            formControlName="passWord"
-            [ngClass]="{
-              error:
-                (submitted || f['passWord'].touched) &&
-                getControl('passWord').errors
-            }"
-          />
-          <div
-            *ngIf="(submitted || f['passWord'].touched) && f['passWord'].errors"
-            class="text-danger small"
-          >
-            <span *ngIf="f['passWord'].errors?.['required']"
-              >Password is required</span
-            >
-          </div>
-          <button class="btn btn-primary form-control mt-4 border-0">
-            submit
-          </button>
-        </form>
-      </div>
-      <div class="p-3" style="line-height: 1em">
-        <p class="form-text">Don't have account?</p>
-        <p class="form-text">Register here!</p>
-        <button
-          class="btn btn-primary border-0"
-          data-bs-target="#exampleModalToggle2"
-          data-bs-toggle="modal"
-          data-bs-dismiss="modal"
-        >
-          Sign Up
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-<div
-  class="modal fade"
-  id="exampleModalToggle2"
-  aria-hidden="true"
-  aria-labelledby="exampleModalToggleLabel2"
-  tabindex="-1"
->
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div
-        class="modal-header text-light"
-        style="
-          background: linear-gradient(
-            to right,
-            rgba(88, 125, 228, 1) 0%,
-            #32c8fa 100%
-          );
-        "
-      >
-        <h5 class="modal-title" id="exampleModalToggleLabel2">SIGN UP</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <form
-          style="line-height: 3em"
-          [formGroup]="SignUpform"
-          (ngSubmit)="OnSubmitSignUp()"
-        >
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input
-              type="text"
-              class="form-control"
-              id="username"
-              required
-              formControlName="UserName"
-              [ngClass]="{
-                error:
-                  (submittedSign || g['UserName'].touched) &&
-                  getControlSign('UserName').errors
-              }"
-            />
-            <div
-              *ngIf="
-                (submittedSign || g['UserName'].touched) && g['UserName'].errors
-              "
-              class="text-danger small"
-            >
-              <span *ngIf="g['UserName'].errors?.['required']"
-                >Username is required</span
-              >
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              required
-              formControlName="emailId"
-              [ngClass]="{
-                error:
-                  (submittedSign || g['emailId'].touched) &&
-                  getControlSign('emailId').errors
-              }"
-            />
-            <div
-              *ngIf="
-                (submittedSign || g['emailId'].touched) && g['emailId'].errors
-              "
-              class="text-danger small"
-            >
-              <span *ngIf="g['emailId'].errors?.['required']"
-                >EmailId is required</span
-              >
-              <span *ngIf="g['emailId'].errors?.['email']"
-                >Enter correct EmailId</span
-              >
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              class="form-control"
-              id="password"
-              required 
-              
-              formControlName="passWord"
-              [ngClass]="{
-                error:
-                  (submittedSign || g['passWord'].touched) &&
-                  getControlSign('passWord').errors
-              }"
-
-
-            />
-            <div
-              *ngIf="
-                (submittedSign || g['passWord'].touched) && g['passWord'].errors
-              "
-              class="text-danger small"
-            >
-              <span *ngIf="g['passWord'].errors?.['required']"
-                >Password is required</span
-              >
-              <span *ngIf="g['passWord'].errors?.['minlength']"
-                >Password must be of 8 characters</span
-              >
-            </div>
-
-
-          </div>
-          <div class="form-group">
-            <label for="confirmPassword">Confirm Password</label>
-            <input
-              type="password"
-              class="form-control"
-              id="confirmPassword"
-              
-              required
-              formControlName="confirmPass"
-              [ngClass]="{
-                error:
-                  (submittedSign || g['confirmPass'].touched) &&
-                  getControlSign('confirmPass').errors
-              }"
-            />
-            <div
-              *ngIf="
-                (submittedSign || g['confirmPass'].touched) && g['confirmPass'].errors
-              "
-              class="text-danger small"
-            >
-              <span *ngIf="g['confirmPass'].errors?.['required']"
-                >Confirm Password is required</span
-              >
-              <span *ngIf="g['confirmPass'].errors?.['minlength']"
-                >Confirm Password must be of 8 characters</span
-              >
-              <span *ngIf = "g['confirmPass'].errors['notmatched']">Pasword and Confirm do not match </span>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary mt-4">Submit</button>
-        </form>
-      </div>
-      <div style="margin-left: 20px; line-height: 1rem; margin-bottom: 20px">
-        <a
-          href="#"
-          data-bs-target="#exampleModalToggle"
-          data-bs-toggle="modal"
-          data-bs-dismiss="modal"
-          ><i class="bi bi-arrow-left-circle-fill bi-3x"></i
-        ></a>
-        <!-- <button data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal"><i class="bi bi-arrow-left-circle-fill" style=" background: none; color: black;"></i></button> -->
-      </div>
-    </div>
-  </div>
-</div>
+  </nav>
+  
