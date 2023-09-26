@@ -16,7 +16,7 @@ export class CurewellService {
 
   //get Doctor
   getDoctor(): Observable<Doctor[]> {
-    return this.http.get<Doctor[]>('https://localhost:44322/api/CureWell/GetDoctor');
+    return this.http.get<Doctor[]>('http://localhost:61538/api/home/getalldoctors');
   }
 
 
@@ -24,38 +24,38 @@ export class CurewellService {
   updateDoctor(doctorid: number, doctorName: string): Observable<boolean> {
     var doctor: Doctor;
     doctor = { DoctorId: doctorid, DoctorName: doctorName };
-    return this.http.put<boolean>('https://localhost:44322/api/CureWell/UpdateDoctorDetails', doctor);
+    return this.http.put<boolean>('http://localhost:61538/api/home/updatedoctor', doctor);
   }
 
 
 
   //get Specialization
   getSpecialization(): Observable<Specialization[]> {
-    return this.http.get<Specialization[]>('https://localhost:44322/api/CureWell/GetSpecialization');
+    return this.http.get<Specialization[]>('http://localhost:61538/api/home/getspecializations');
   }
 
   //get Specialization by code
   getDoctorBySpecialization(code: string): Observable<DoctorSpecialization[]> {
     //const params = new HttpParams().set('code', code);
-    return this.http.get<DoctorSpecialization[]>('https://localhost:44322/api/CureWell/GetDoctorBySpecialization/' + code);
+    return this.http.get<DoctorSpecialization[]>('http://localhost:61538/api/home/specializationcode' + code);
   }
 
   //GET All Surgery For Today
   getSurgery(): Observable<Surgery[]> {
-    return this.http.get<Surgery[]>('https://localhost:44322/api/CureWell/GetSurgeryType');
+    return this.http.get<Surgery[]>('http://localhost:61538/api/home/surgerytypefortoday');
   }
 
   //Update Todays Surgery
   UpdateSurgery(doctorId: number, endTime: number, startTime: number, surgeryCategory: string, surgeryDate: Date, surgeryId: number): Observable<boolean> {
     var surgery: Surgery;
     surgery = { DoctorId: doctorId, EndTime: endTime, StartTime: startTime, SurgeryCategory: surgeryCategory, SurgeryDate: surgeryDate, SurgeryId: surgeryId };
-    return this.http.put<boolean>('https://localhost:44322/api/CureWell/UpdateSurgery', surgery);
+    return this.http.put<boolean>('http://localhost:61538/api/home/updatesurgery', surgery);
   }
 
   //Add Doctor
   AddDoctor(doctorName: string): Observable<boolean> {
     var doctor: Doctor;
     doctor = { DoctorId: 0, DoctorName: doctorName };
-    return this.http.post<boolean>('https://localhost:44322/api/CureWell/AddDoctor', doctor);
+    return this.http.post<boolean>('http://localhost:61538/api/home/adddoctor', doctor);
   }
 }
