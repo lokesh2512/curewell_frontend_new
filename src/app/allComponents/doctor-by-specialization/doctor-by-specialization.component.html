@@ -1,0 +1,32 @@
+<h2 align="center" style="margin-top: 2%;">View Doctor</h2>
+
+<div class="body" style="margin-left: 10%; margin-right: 10%;" *ngIf="doctorList.length > 0">
+  <div class="table-responsive" style="max-height: 400px; overflow: auto;">
+    <table class="table" style="border: 2px solid rgb(0, 0, 0); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+      <thead style="position: sticky; top: 0; font-size: 12pt">
+        <tr class="view-doctor-head">
+          <th>Doctor Id</th>
+          <th>Specialization Code</th>
+          <th>Specialization Date</th>
+          <th style="text-align: center" colspan="2">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let doctor of doctorList; let i = index">
+          <td>{{doctor.DoctorId}}</td>
+          <td>{{doctor.SpecializationCode}}</td>
+          <td>{{doctor.SpecializationDate | date: "dd/MM/yyyy"}}</td>
+          <td>
+            <button class="editBtn" style="margin-left: 40%;background-color: #37BEF7; color: white;" [routerLink]="['/Specialization']" routerLinkActive="router-link-active" >Back</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div *ngIf="doctorList.length === 0">
+  <br />
+  <h3 class="jumbotron" style="text-align: center; background-color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">No Doctor Available</h3>
+</div>
+

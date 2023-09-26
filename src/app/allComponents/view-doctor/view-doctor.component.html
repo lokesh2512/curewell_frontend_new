@@ -1,28 +1,29 @@
-<h2 align="center" style="margin-top: 2%;">
-    View Doctor
-  </h2>
-  <div class="body" style=" margin-left: 10%; margin-right: 10%;" *ngIf="(doctorList.length>0)">
-    <div class="table-responsive">
-  
-      <table align="center" class="table" style="border:2px solid rgba(220,230,242,1);">
-        <tr style="background-color: #2724AC; opacity: 78%;    color : white;  font-size:12pt">
+<h2 align="center" style="margin-top: 2%;">View Doctor</h2>
+
+<div class="body" style="margin-left: 10%; margin-right: 10%;" *ngIf="doctorList.length > 0">
+  <div class="table-responsive" style="max-height: 400px; overflow: auto;">
+    <table class="table" style="border: 2px solid rgb(0, 0, 0); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+      <thead style="position: sticky; top: 0; font-size: 12pt">
+        <tr class="view-doctor-head">
           <th>Doctor Id</th>
           <th>Doctor Name</th>
-          <th style="text-align:center" colspan="2">Action</th>
+          <th style="text-align: center" colspan="2">Action</th>
         </tr>
-  
-        <tr *ngFor="let doctor of doctorList"  style="background-color:rgb(255, 255, 255)">
-          <!--Add your logic here-->
+      </thead>
+      <tbody>
+        <tr *ngFor="let doctor of doctorList; let i = index">
           <td>{{doctor.DoctorId}}</td>
           <td>{{doctor.DoctorName}}</td>
-          <td> <button class="btn " style="margin-left: 40%;font-weight: bold;" (click)="EditDoctor(doctor)">Edit Doctor Details</button></td>
+          <td>
+            <button class="editBtn" style="margin-left: 40%;background-color: #37BEF7; color: white;" (click)="EditDoctor(doctor)">Edit Doctor Details</button>
+          </td>
         </tr>
-      </table>
-  
-    </div>
+      </tbody>
+    </table>
   </div>
-  <div *ngIf="(doctorList.length==0)">
-    <br/>
-    <h3 class="jumbotron" style="text-align:center;background-color:white">No Doctor Available</h3>
-  </div>
+</div>
 
+<div *ngIf="doctorList.length === 0">
+  <br />
+  <h3 class="jumbotron" style="text-align: center; background-color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">No Doctor Available</h3>
+</div>

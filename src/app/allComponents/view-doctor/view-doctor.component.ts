@@ -39,4 +39,5 @@ export class ViewDoctorComponent implements OnInit {
     this.router.navigate(['/edit', doctor.DoctorId, doctor.DoctorName]);
   }
 
+
 }
