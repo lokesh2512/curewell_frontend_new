@@ -1,46 +1,199 @@
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" [routerLink]="['']"  [routerLinkActiveOptions]="{exact: true}" routerLinkActive="router-link-active" ><img src="../../assets/images/MicrosoftTeams-image__5_-removebg-preview.png" width="200px" alt=""></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav me-auto">
+  <div class="container-fluid">
+    <a
+      class="navbar-brand"
+      [routerLink]="['']"
+      [routerLinkActiveOptions]="{ exact: true }"
+      routerLinkActive="router-link-active"
+      ><img
+        src="../../assets/images/MicrosoftTeams-image__5_-removebg-preview.png"
+        width="200px"
+        alt=""
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarColor01"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <span>
           <li class="nav-item">
-            <a class="nav-link active" [routerLink]="['']" routerLinkActive="router-link-active" data-ol-has-click-handler="">Home
+            <a
+              class="nav-link active"
+              [routerLink]="['']"
+              routerLinkActive="router-link-active"
+              data-ol-has-click-handler=""
+            >
+              Home
               <span class="visually-hidden">(current)</span>
             </a>
           </li>
+        </span>
+        <span>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['ViewDoctor']" routerLinkActive="router-link-active" >View Doctors</a>
+            <a
+              class="nav-link"
+              [routerLink]="['ViewDoctor']"
+              routerLinkActive="router-link-active"
+              >View Doctors</a
+            >
           </li>
+        </span>
+        <span>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['Specialization']" routerLinkActive="router-link-active">View Specialisation</a>
+            <a
+              class="nav-link"
+              [routerLink]="['Specialization']"
+              routerLinkActive="router-link-active"
+              >View Specialisation</a
+            >
           </li>
+        </span>
+        <span>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['TodaySurgery']" routerLinkActive="router-link-active"
-            >View Today's surgery</a>
+            <a
+              class="nav-link"
+              [routerLink]="['TodaySurgery']"
+              routerLinkActive="router-link-active"
+              >View Today's surgery</a
+            >
           </li>
+        </span>
+        <span>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['AddingDoctor']" routerLinkActive="router-link-active">Add Doctor</a>
+            <a
+              class="nav-link"
+              [routerLink]="['AddingDoctor']"
+              routerLinkActive="router-link-active"
+              >Add Doctor</a
+            >
           </li>
-        </ul>
-        <div class="d-flex justify">
-          <!-- <button class="button-gradient">
+        </span>
+      </ul>
+      <div class="d-flex" style="justify-content: space-between">
+        <!-- <button class="button-gradient">
             <span><i class="bi-telephone-fill"></i></span>
             <span class="text-light">+34 586 778 8892</span>
           </button> -->
-          <div class="button" style="margin-right: 20px;">
-            <button class="wpcf7-form-control wpcf7-submit p-2" >
-              <i class="bi-telephone-fill"></i>
-              <a href="tel:+129-3345355454" style="text-decoration: none; color: white;" >+129-3345355454</a>
-            </button>
-          </div>
-          <div class="button">
-            <button class=" wpcf7-form-control btn2wpcf7-submit">Login / SignUp</button>
-          </div>
+        <div class="button" style="margin-right: 20px">
+          <button class="wpcf7-form-control wpcf7-submit">
+            <img src="../../assets/images/emergency-call.png.webp" alt="img" />
+            <a
+              href="tel:+129-3345355454"
+              style="text-decoration: none; color: white"
+              >+129-3345355454</a
+            >
+          </button>
+        </div>
+        <div class="button">
+          <button
+            class="wpcf7-form-control btn2wpcf7-submit"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Login
+          </button>
         </div>
       </div>
     </div>
-  </nav>
-  
+  </div>
+</nav>
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header text-light" style=" background: linear-gradient(to right,#32c8fa 0%,rgba(88,125,228,1)100%);">
+        <h5 class="card-title" id="exampleModalLabel">Login</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div>
+        <form  [formGroup]="LoginForm"
+        (ngSubmit)="OnSubmit()">
+          <div class="card-body p-3">
+            <label class="form-label">Username</label>
+            <input type="text" class="form-control" 
+             formControlName="userName"
+              [ngClass]="{
+                error:
+                  (submitted || f['userName'].touched) &&
+                  getControl('userName').errors
+              }"
+            />
+            <div
+              *ngIf="
+                (submitted || f['userName'].touched) && f['userName'].errors
+              "
+              class="text-danger small"
+            >
+              <span *ngIf="f['userName'].errors?.['required']"
+                >Username is required</span
+              >
+            </div>
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" 
+            formControlName="passWord"
+            [ngClass]="{
+              error:
+                (submitted || f['passWord'].touched) &&
+                getControl('passWord').errors
+            }"
+            />
+            <div
+              *ngIf="
+                (submitted || f['passWord'].touched) && f['passWord'].errors
+              "
+              class="text-danger small"
+            >
+              <span *ngIf="f['passWord'].errors?.['required']"
+                >Password is required</span
+              >
+            </div>
+            <div
+              *ngIf="
+                (submitted || f['passWord'].touched) && f['passWord'].errors
+              "
+              class="text-danger small"
+            >
+              <span *ngIf="f['passWord'].errors?.['minlength'] || f['passWord'].errors?.['maxlength']"
+                >Password must be of 8 characters</span
+              >
+            </div>
+            <div
+            *ngIf="
+              (submitted || f['passWord'].touched) && f['passWord'].errors
+            "
+            class="text-danger small"
+          >
+            <span *ngIf="f['passWord'].errors?.['pattern']"
+              >Invalid Password</span
+            >
+          </div>
+          
+          <button type="submit" class="btn btn-primary" style="margin-top: 13px; border: none;">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
