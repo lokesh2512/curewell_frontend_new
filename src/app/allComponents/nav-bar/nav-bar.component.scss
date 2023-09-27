@@ -102,22 +102,5 @@
     z-index: 9999999;
 }
 
-ul>li>a {
-    font-size: 22px;
-}
+/* Default styles for the login button */
 
-ul li:not(:first-child) {
-    margin-left: 10px;
-}
-
-.loginbtn {
-    margin-left: 18px;
-    margin-right: 10px;
-    padding: 10px;
-    font-size: 20px;
-}
-
-.call {
-    padding: 10px;
-    font-size: 20px;
-}
