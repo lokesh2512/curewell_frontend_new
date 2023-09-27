@@ -69,7 +69,7 @@
           <h2 class="text-center mt-3">Make an Appointment</h2>
           <form
             class="d-flex flex-wrap"
-            style="justify-content:flex-start"
+            style="justify-content: flex-start"
             [formGroup]="appointmentForm"
             (ngSubmit)="OnSubmit()"
           >
@@ -82,7 +82,9 @@
                   getControl('departMent').errors
               }"
             >
-              <option value="value1" [defaultSelected]="true" disabled>Select Department</option>
+              <option value="value1" [defaultSelected]="true" disabled>
+                Select Department
+              </option>
               <option value="value2">Select Department 1</option>
               <option value="value3">Select Department 2</option>
             </select>
@@ -97,19 +99,19 @@
               >
             </div>
             <select
-            class="select-doctor"
-            formControlName="doctor"
-            [ngClass]="{
-              error:
-                (submitted || f['doctor'].touched) &&
-                getControl('doctor').errors
-            }"
-          >
-            <option [defaultSelected]="true" disabled>Select Doctor</option>
-            <option>Select Doctor 1</option>
-            <option>Select Doctor 2</option>
-          </select>
-          
+              class="select-doctor"
+              formControlName="doctor"
+              [ngClass]="{
+                error:
+                  (submitted || f['doctor'].touched) &&
+                  getControl('doctor').errors
+              }"
+            >
+              <option [defaultSelected]="true" disabled>Select Doctor</option>
+              <option>Select Doctor 1</option>
+              <option>Select Doctor 2</option>
+            </select>
+
             <div
               *ngIf="(submitted || f['doctor'].touched) && f['doctor'].errors"
               class="text-danger small"
@@ -135,14 +137,26 @@
               "
               class="text-danger small text-center"
             >
+              <span *ngIf="f['Patientname'].errors?.['minlength']"
+                >Name must be of minimum 4 characters</span
+              >
+            </div>
+            <div
+              *ngIf="
+                (submitted || f['Patientname'].touched) &&
+                f['Patientname'].errors
+              "
+              class="text-danger small text-center"
+            >
               <span *ngIf="f['Patientname'].errors?.['required']"
-              
                 >Name is required</span
               >
             </div>
 
-            <input type="text" placeholder="Phone No" 
-            formControlName="ContactNumber"
+            <input
+              type="text"
+              placeholder="Phone No"
+              formControlName="ContactNumber"
               [ngClass]="{
                 error:
                   (submitted || f['ContactNumber'].touched) &&
@@ -156,160 +170,28 @@
               "
               class="text-danger small text-center"
             >
-              <span style="text-align: center;" *ngIf="f['ContactNumber'].errors?.['required']"
+              <span
+                style="text-align: center"
+                *ngIf="f['ContactNumber'].errors?.['required']"
                 >Phone No is required</span
               >
               <span
-              *ngIf="f['ContactNumber'].errors?.['minlength'] || f['ContactNumber'].errors?.['maxlength']"
-              >Contact No. must be of 10 digit</span
-            >
-            <span *ngIf="f['ContactNumber'].errors?.['pattern']"
-              >.Please enter valid contact no</span
-            >
+                *ngIf="f['ContactNumber'].errors?.['minlength'] || f['ContactNumber'].errors?.['maxlength']"
+                >Contact No. must be of 10 digit</span
+              >
+              <span *ngIf="f['ContactNumber'].errors?.['pattern']"
+                >.Please enter valid contact no</span
+              >
             </div>
-            
-     
+
             <button
               class="button gradient-bg form-control mt-3 text-center"
               type="submit"
-             
-          
-            > Book Appointment </button>
-            
+            >
+              Book an Appointment
+            </button>
           </form>
         </div>
-
-        <!-- <div class="appointment-box card" style="margin-top: 10px">
-          
-          <h2 class="d-flex align-items-center">Make an Appointment</h2>
-            <form [formGroup]="appointmentForm" (ngSubmit)="OnSubmit()" class="d-flex flex-wrap justify-content-between">
-              <div class="card-body">
-                <div style="display: flex;justify-content:space-around;">
-                  <div class="mb-3" style="margin-right: 15px">
-                    <label class="form-label">Choose Department</label>
-                    <select
-                      class="form-control"
-                      formControlName="departMent"
-                      [ngClass]="{
-                        error:
-                          (submitted || f['departMent'].touched) &&
-                          getControl('departMent').errors
-                      }"
-                    >
-                      <option value="Department">
-                        ---select Department---
-                      </option>
-                      <option>Select Department 1</option>
-                      <option>Select Department 2</option>
-                      <option>Select Department 3</option>
-                    </select>
-                    <div
-                      *ngIf="
-                        (submitted || f['departMent'].touched) &&
-                        f['departMent'].errors
-                      "
-                      class="text-danger small text-center"
-                    >
-                      <span *ngIf="f['departMent'].errors?.['required']"
-                        >Department is required</span
-                      >
-                    </div>
-                  </div>
-
-                  <div class="mb-3">
-                    <label class="form-label">Choose Doctor</label>
-                    <select
-                      class="form-control"
-                      formControlName="doctor"
-                      [ngClass]="{
-                        error:
-                          (submitted || f['doctor'].touched) &&
-                          getControl('doctor').errors
-                      }"
-                    >
-                      <option value="doctor">---select doctor---</option>
-                      <option>Select Doctor 1</option>
-                      <option>Select Doctor 2</option>
-                      <option>Select Doctor 3</option>
-                    </select>
-                    <div
-                      *ngIf="
-                        (submitted || f['doctor'].touched) && f['doctor'].errors
-                      "
-                      class="text-danger small text-center"
-                    >
-                      <span *ngIf="f['doctor'].errors?.['required']"
-                        >Doctor field is required</span
-                      >
-                    </div>
-                  </div>
-                </div>
-                <div style="display: flex; justify-content: space-around;">
-                  <div class="mb-3" style="margin-right: 15px">
-                    <input
-                      type="text"
-                      placeholder=" Enter Name"
-                      class="form-control"
-                      formControlName="Patientname"
-                      [ngClass]="{
-                        error:
-                          (submitted || f['Patientname'].touched) &&
-                          getControl('Patientname').errors
-                      }"
-                    />
-                    <div
-                      *ngIf="
-                        (submitted || f['Patientname'].touched) &&
-                        f['Patientname'].errors
-                      "
-                      class="text-danger small text-center"
-                    >
-                      <span *ngIf="f['Patientname'].errors?.['required']"
-                        >Name is required</span
-                      >
-                    </div>
-                  </div>
-                  <div class="mb-3">
-                    <input
-                      type="text"
-                      placeholder=" Enter Phone No."
-                      class="form-control"
-                      formControlName="ContactNumber"
-                      [ngClass]="{
-                        error:
-                          (submitted || f['ContactNumber'].touched) &&
-                          getControl('ContactNumber').errors
-                      }"
-                    />
-                    <div
-                      *ngIf="
-                        (submitted || f['ContactNumber'].touched) &&
-                        f['ContactNumber'].errors
-                      "
-                      class="text-danger small text-center"
-                    >
-                      <span *ngIf="f['ContactNumber'].errors?.['required']"
-                        >Phone No is required</span
-                      >
-                      <span
-                        *ngIf="f['ContactNumber'].errors?.['minlength'] || f['ContactNumber'].errors?.['maxlength']"
-                        >Contact No. must be of 10 digit</span
-                      >
-                      <span *ngIf="f['ContactNumber'].errors?.['pattern']"
-                        >.Please enter valid contact no</span
-                      >
-                    </div>
-                  </div>
-                </div>
-                <div class="mb-3 text-center">
-                  <button class="button gradient-bg">
-                    Book Appointment
-                  </button>
-                </div>
-              </div>
-            </form>
-          
-        </div> -->
       </div>
     </div>
   </section>

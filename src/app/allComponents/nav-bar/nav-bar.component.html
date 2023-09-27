@@ -20,7 +20,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
-        <span>
+        
           <li class="nav-item">
             <a
               class="nav-link active"
@@ -32,8 +32,8 @@
               <span class="visually-hidden">(current)</span>
             </a>
           </li>
-        </span>
-        <span>
+        
+        
           <li class="nav-item">
             <a
               class="nav-link"
@@ -42,8 +42,8 @@
               >View Doctors</a
             >
           </li>
-        </span>
-        <span>
+        
+        
           <li class="nav-item">
             <a
               class="nav-link"
@@ -52,8 +52,8 @@
               >View Specialisation</a
             >
           </li>
-        </span>
-        <span>
+        
+        
           <li class="nav-item">
             <a
               class="nav-link"
@@ -62,8 +62,8 @@
               >View Today's surgery</a
             >
           </li>
-        </span>
-        <span>
+        
+        
           <li class="nav-item">
             <a
               class="nav-link"
@@ -72,9 +72,9 @@
               >Add Doctor</a
             >
           </li>
-        </span>
+        
       </ul>
-      <div class="d-flex" style="justify-content: space-between">
+      <div class="d-flex asd" >
         <!-- <button class="button-gradient">
             <span><i class="bi-telephone-fill"></i></span>
             <span class="text-light">+34 586 778 8892</span>
@@ -88,6 +88,7 @@
               >+129-3345355454</a
             >
           </button>
+          
         </div>
         <div class="button">
           <button
@@ -170,16 +171,6 @@
               >
             </div>
             <div
-              *ngIf="
-                (submitted || f['passWord'].touched) && f['passWord'].errors
-              "
-              class="text-danger small"
-            >
-              <span *ngIf="f['passWord'].errors?.['minlength'] || f['passWord'].errors?.['maxlength']"
-                >Password must be of 8 characters</span
-              >
-            </div>
-            <div
             *ngIf="
               (submitted || f['passWord'].touched) && f['passWord'].errors
             "
@@ -196,4 +187,8 @@
       </div>
     </div>
   </div>
+</div>
+
+<div>
+  
 </div>
