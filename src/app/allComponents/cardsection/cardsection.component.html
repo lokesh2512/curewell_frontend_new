@@ -71,7 +71,7 @@
             class="d-flex flex-wrap"
             style="justify-content: flex-start"
             [formGroup]="appointmentForm"
-            (ngSubmit)="OnSubmit()"
+            (ngSubmit)="OnSubmit(appointmentForm.controls['departMent'].value,appointmentForm.controls['Patientname'].value, appointmentForm.controls['ContactNumber'].value)"
           >
             <select
               class="select-department"
@@ -81,12 +81,14 @@
                   (submitted || f['departMent'].touched) &&
                   getControl('departMent').errors
               }"
+              id="departMent"
             >
               <option value="value1" [defaultSelected]="true" disabled>
                 Select Department
               </option>
-              <option value="value2">Select Department 1</option>
-              <option value="value3">Select Department 2</option>
+              <option value="Anesthesiologist">Anesthesiologist</option>
+              <option value="Cardiologist">Cardiologist</option>
+             <option value="Gynecologist">Gynecologist</option>
             </select>
             <div
               *ngIf="
@@ -96,28 +98,6 @@
             >
               <span *ngIf="f['departMent'].errors?.['required']"
                 >Department is required</span
-              >
-            </div>
-            <select
-              class="select-doctor"
-              formControlName="doctor"
-              [ngClass]="{
-                error:
-                  (submitted || f['doctor'].touched) &&
-                  getControl('doctor').errors
-              }"
-            >
-              <option [defaultSelected]="true" disabled>Select Doctor</option>
-              <option>Select Doctor 1</option>
-              <option>Select Doctor 2</option>
-            </select>
-
-            <div
-              *ngIf="(submitted || f['doctor'].touched) && f['doctor'].errors"
-              class="text-danger small"
-            >
-              <span *ngIf="f['doctor'].errors?.['required']"
-                >Doctor is required</span
               >
             </div>
             <input

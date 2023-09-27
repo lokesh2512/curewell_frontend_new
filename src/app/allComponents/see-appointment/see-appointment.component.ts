@@ -9,10 +9,15 @@ import { CurewellService } from 'src/app/services/curewell.service';
   styleUrls: ['./see-appointment.component.scss']
 })
 export class SeeAppointmentComponent implements OnInit {
+  showComponent = true;
+
   appointment: Appointment[] = [];
   constructor(private _curewellService: CurewellService, private router: Router) { }
   ngOnInit(): void {
     try {
+      setTimeout(() => {
+        this.showComponent = false;
+      }, 3000);
       this.getAppointmentDetails(); // Calling the getAppointmentDetails method in the beginning
     } catch (error) {
       console.error('An error occurred during component initialization:', error);

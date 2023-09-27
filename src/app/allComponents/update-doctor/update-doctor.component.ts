@@ -15,7 +15,7 @@ export class UpdateDoctorComponent implements OnInit {
   update!: FormGroup;
   id: number = 0;
   name: string = "";
-  regex:string = "^[a-zA-Z ]*$";
+  regex: string = "^[a-zA-Z ]*$";
 
   constructor(private route: ActivatedRoute, private _cureWellService: CurewellService, private router: Router) { }
   

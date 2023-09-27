@@ -9,9 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./view-specialization.component.scss']
 })
 export class ViewSpecializationComponent implements OnInit{
+  showComponent = true;
   specialization: Specialization[] = [];
   constructor(private _curewellService: CurewellService,private router: Router){}
   ngOnInit(): void {
+    setTimeout(() => {
+      this.showComponent = false;
+    }, 3000);
     this.getSpecialization();
   }
   //

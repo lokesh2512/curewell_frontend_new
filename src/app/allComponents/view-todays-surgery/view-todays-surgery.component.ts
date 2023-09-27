@@ -9,9 +9,13 @@ import { CurewellService } from 'src/app/services/curewell.service';
   styleUrls: ['./view-todays-surgery.component.scss']
 })
 export class ViewTodaysSurgeryComponent implements OnInit {
+  showComponent = true;
   surgery: Surgery[]=[];
   constructor(private _cureWellService: CurewellService,private router: Router){}
   ngOnInit(): void {
+    setTimeout(() => {
+      this.showComponent = false;
+    }, 3000);
     this.todaySurgery();
   }
   //To Get Todays Surgery Data

@@ -10,7 +10,7 @@ import { CurewellService } from 'src/app/services/curewell.service';
   styleUrls: ['./doctor-by-specialization.component.scss']
 })
 export class DoctorBySpecializationComponent {
-
+  showComponent = true;
   code: string = "";
   doctorList: DoctorSpecialization[] = [];
 
@@ -18,6 +18,9 @@ export class DoctorBySpecializationComponent {
   
   ngOnInit(): void {
     try {
+      setTimeout(() => {
+        this.showComponent = false;
+      }, 3000);
       this.code = this.route.snapshot.params['code'];
       this.getDoctorBySpecialization();
     } catch (error) {

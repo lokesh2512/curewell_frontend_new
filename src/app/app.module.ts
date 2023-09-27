@@ -21,6 +21,7 @@ import { NewsSectionComponent } from './allComponents/news-section/news-section.
 import { LandingPageComponent } from './allComponents/landing-page/landing-page.component';
 import { DoctorBySpecializationComponent } from './allComponents/doctor-by-specialization/doctor-by-specialization.component';
 import { SeeAppointmentComponent } from './allComponents/see-appointment/see-appointment.component';
+import { LoaderComponent } from './allComponents/loader/loader.component';
 
 
 
@@ -43,6 +44,7 @@ import { SeeAppointmentComponent } from './allComponents/see-appointment/see-app
     LandingPageComponent,
     DoctorBySpecializationComponent,
     SeeAppointmentComponent,
+    LoaderComponent,
 
 
 

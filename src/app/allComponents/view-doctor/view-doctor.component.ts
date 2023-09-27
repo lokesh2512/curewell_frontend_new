@@ -9,6 +9,9 @@ import { CurewellService } from 'src/app/services/curewell.service';
   styleUrls: ['./view-doctor.component.scss']
 })
 export class ViewDoctorComponent implements OnInit {
+  showComponent = true;
+
+
   doctorList: Doctor[] = [];
 
   constructor(private _curewellService: CurewellService, private router: Router) { }
@@ -16,6 +19,9 @@ export class ViewDoctorComponent implements OnInit {
   // First thing to be called during initialization
   ngOnInit(): void {
     try {
+      setTimeout(() => {
+        this.showComponent = false;
+      }, 3000); // 3000 milliseconds = 3 seconds
       this.getDoctor(); // Calling the getDoctor method in the beginning
     } catch (error) {
       console.error('An error occurred during component initialization:', error);
