@@ -29,7 +29,4 @@ export class ViewSpecializationComponent implements OnInit{
   todayDoctor(code:string) {
     this.router.navigate(['/bySpecialization', code]);
   }
-
-
-
 }

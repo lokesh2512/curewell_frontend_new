@@ -59,116 +59,7 @@
         </div>
       </div>
       <div class="col-md-4">
-        <!-- <div class="appointment-box card" style="margin-top: 10px">
-          <h2 class="d-flex align-items-center">Make an Appointment</h2>
-          <form
-            class="d-flex flex-wrap justify-content-between"
-            [formGroup]="appointmentForm"
-            (ngSubmit)="OnSubmit()"
-          >
-            <div>
-              <select
-                class="select-department form-control"
-                formControlName="departMent"
-                [ngClass]="{
-                  error:
-                    (submitted || f['departMent'].touched) &&
-                    getControl('departMent').errors
-                }"
-              >
-                <option value="value1">Select Department</option>
-                <option value="value2">Select Department 1</option>
-                <option value="value3">Select Department 2</option>
-              </select>
-              <div
-                *ngIf="
-                  (submitted || f['departMent'].touched) &&
-                  f['departMent'].errors
-                "
-                class="text-danger small"
-              >
-                <span *ngIf="f['departMent'].errors?.['required']"
-                  >Department is required</span
-                >
-              </div>
-            </div>
-            <div>
-              <select
-                class="select-doctor form-control"
-                formControlName="doctor"
-                [ngClass]="{
-                  error:
-                    (submitted || f['doctor'].touched) &&
-                    getControl('doctor').errors
-                }"
-              >
-                <option>Select Doctor</option>
-                <option>Select Doctor 1</option>
-                <option>Select Doctor 2</option>
-              </select>
-              <div
-                *ngIf="(submitted || f['doctor'].touched) && f['doctor'].errors"
-                class="text-danger small"
-              >
-                <span *ngIf="f['doctor'].errors?.['required']"
-                  >Doctor is required</span
-                >
-              </div>
-            </div>
-            <div>
-              <input
-                class="form-control"
-                type="text"
-                placeholder="Name"
-                formControlName="name"
-                [ngClass]="{
-                  error:
-                    (submitted || f['name'].touched) &&
-                    getControl('name').errors
-                }"
-              />
-              <div
-                *ngIf="(submitted || f['name'].touched) && f['name'].errors"
-                class="text-danger small"
-              >
-                <span *ngIf="f['name'].errors?.['required']"
-                  >Name is required</span
-                >
-              </div>
-            </div>
-            <div>
-              <input
-                class="form-control"
-                type="number"
-                placeholder="Phone No"
-                formControlName="ContactNumber"
-                [ngClass]="{
-                  error:
-                    (submitted || f['ContactNumber'].touched) &&
-                    getControl('ContactNumber').errors
-                }"
-              />
-
-              <div
-                *ngIf="(submitted || f['ContactNumber'].touched) && f['ContactNumber'].errors"
-                class="text-danger small"
-              >
-                <span *ngIf="f['ContactNumber'].errors?.['required']"
-                  >Phone No. is required</span
-                >
-                <span
-                  *ngIf="f['ContactNumber'].errors?.['minlength'] || f['ContactNumber'].errors?.['maxlength']"
-                  >Contact No. must be of 10 digit</span
-                >
-              </div>
-            </div>
-            <input
-              class="button gradient-bg form-control"
-              type="submit"
-              value="BooK Appointment"
-            />
-          </form>
-        </div> -->
+        
         <div class="appointment-box card" style="margin-top: 10px">
           
           <h2 class="d-flex align-items-center">Make an Appointment</h2>
@@ -189,7 +80,7 @@
                       <option value="Department">
                         ---select Department---
                       </option>
-                      <option>Select Department 1</option>
+                      <option></option>
                       <option>Select Department 2</option>
                       <option>Select Department 3</option>
                     </select>

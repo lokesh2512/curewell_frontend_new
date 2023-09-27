@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { Specialization } from '../curewell-interfaces/specialization';
 import { Surgery } from '../curewell-interfaces/Surgery';
 import { DoctorSpecialization } from '../curewell-interfaces/doctorSpecialization';
+import { Appointment } from '../curewell-interfaces/appointment';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,11 @@ export class CurewellService {
   //get Specialization
   getSpecialization() : Observable < Specialization[] > {
     return this.http.get<Specialization[]>('https://localhost:44322/api/CureWell/GetSpecialization');
+  }
+
+  //Get All Appointments
+  getAppointment(): Observable<Appointment[]>{
+    return this.http.get<Appointment[]>('https://localhost:44322/api/CureWell/getappointment');
   }
 
   //get Specialization by code

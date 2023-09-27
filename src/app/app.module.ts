@@ -20,6 +20,7 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { NewsSectionComponent } from './allComponents/news-section/news-section.component';
 import { LandingPageComponent } from './allComponents/landing-page/landing-page.component';
 import { DoctorBySpecializationComponent } from './allComponents/doctor-by-specialization/doctor-by-specialization.component';
+import { SeeAppointmentComponent } from './allComponents/see-appointment/see-appointment.component';
 
 
 
@@ -41,6 +42,7 @@ import { DoctorBySpecializationComponent } from './allComponents/doctor-by-speci
     NewsSectionComponent,
     LandingPageComponent,
     DoctorBySpecializationComponent,
+    SeeAppointmentComponent,
 
 
 
