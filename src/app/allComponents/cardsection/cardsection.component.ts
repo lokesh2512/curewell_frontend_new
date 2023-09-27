@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cardsection',
@@ -9,6 +10,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 export class CardsectionComponent implements OnInit {
   appointmentForm !: FormGroup;
   submitted: boolean = false;
+  showAlert = false;
   mobileNoRegex: string = "^[0-9]*$";
 
   constructor(private fb: FormBuilder) { }
@@ -28,6 +30,16 @@ export class CardsectionComponent implements OnInit {
   OnSubmit() {
     this.submitted = true;
     console.log(this.appointmentForm);
+    if(this.appointmentForm.invalid){
+      return;
+    }
+    this.showAlert = true;
+    if(this.showAlert == true){
+      Swal.fire("Thank You....", 'Appointment Confirmed Successfully', 'success')
+    }
+
+    
+    
 
   }
   getControl(controlName: string): AbstractControl {
@@ -37,5 +49,12 @@ export class CardsectionComponent implements OnInit {
   get f(): { [controlname: string]: AbstractControl } {
     return this.appointmentForm.controls;
   }
+  // simpleAlert(){
+    
+  //   Swal.fire("Thank You....", 'Appointment Confirmed', 'success')
+
+  // }
+
+
 
 }

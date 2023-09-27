@@ -1,17 +1,39 @@
-.navbar-brand{
+.navbar-brand {
     font-weight: bolder;
 }
-.navbar{
+
+.navbar {
     position: sticky;
     top: 0;
     z-index: 99999;
 }
+
 .nav-item a:hover {
-    background-color: white;
-   
-    color: black;
+    background-color: rgb(144, 222, 228);
+    border-radius: 5px;
+    color: black
+}
+
+.navbar-nav .nav-item .nav-link {
+    font-size: 16px;
+    /* Set the default font size */
+    /* Set the default text color to white */
+    font-weight: 400;
+    transition: all 0.3s ease;
+    /* Add a smooth transition effect */
+}
+
+.navbar-nav .nav-item .nav-link:active,
+.navbar-nav .nav-item .nav-link:focus {
+
+    font-size: 18px;
+    /* Increase font size on click/hover */
+    /* Set text color to white on click/hover */
+    color: white;
+    font-weight: 800;
 
 }
+
 
 // .button-gradient {
 //     background: linear-gradient(to bottom, #00b7ff, #0066ff); /* Change these color codes to your desired gradient colors */
@@ -23,17 +45,17 @@
 //     transition: background 0.3s ease; /* Smooth transition for the background color on hover */
 //     padding-left: 30px;
 //     padding-right: 30px;
-    
+
 //   }
-  
+
 //   /* Style the button on hover (optional) */
 //   .button-gradient:hover {
 //     background: linear-gradient(to bottom, #ff4500, #ff8c00); /* Change these color codes to your desired hover gradient colors */
 //   }
 .button .wpcf7-submit {
     border-color: transparent;
-    background: linear-gradient(to right,#32c8fa 0%,rgba(88,125,228,1)100%);
-    
+    background: linear-gradient(to right, #32c8fa 0%, rgba(88, 125, 228, 1)100%);
+
     background-size: 200% auto;
     color: #ffffff !important;
     border-radius: 12px;
@@ -48,8 +70,9 @@
     width: 192px;
     height: 40px;
 }
+
 .button .btn2wpcf7-submit {
-    background-image: linear-gradient(to right,#19386c 0% ,#60c2ef 51%,#4b76ba 100%);
+    background-image: linear-gradient(to right, #19386c 0%, #60c2ef 51%, #4b76ba 100%);
     background-size: 200% auto;
     color: #ffffff !important;
     border-radius: 12px;
@@ -65,15 +88,19 @@
     height: 40px;
 }
 
-.button .wpcf7-submit:hover{
+.button .wpcf7-submit:hover {
     background-position: right center;
 
 }
-.button .btn2wpcf7-submit:hover{
+
+.button .btn2wpcf7-submit:hover {
     background-position: right center;
 
 }
+
 .modal {
     z-index: 9999999;
 }
-  
+
+/* Default styles for the login button */
+

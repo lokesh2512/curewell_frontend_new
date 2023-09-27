@@ -1,9 +1,11 @@
 <h2 align="center" style="margin-top: 2%;">View Specialization</h2>
 
 <div *ngIf="specialization.length > 0" class="body" style="margin-left: 10%;margin-right: 10%;margin-bottom: 13%;">
-  <div class="table-responsive" style="max-height: 400px; overflow: auto;">
-    <table align="center" class="table" style="border: 2px solid rgb(0, 0, 0);box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-      <tr style="position: sticky;border: 2px solid rgb(0, 0, 0); top: 0; background-color: #ffffff !important;color: rgb(0, 0, 0); font-size: 12pt">
+  <div class="table-responsive" style="max-height: fit-content; overflow: auto;">
+    <table align="center" class="table"
+      style="border: 2px solid rgb(0, 0, 0);box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+      <tr
+        style="position: sticky;border: 2px solid rgb(0, 0, 0); top: 0; background-color: #ffffff !important;color: rgb(0, 0, 0); font-size: 12pt">
         <th>Specialization Code</th>
         <th>Specialization Name</th>
         <th style="text-align: center" colspan="1">Action</th>
@@ -14,7 +16,9 @@
           <td>{{spec.SpecializationCode}}</td>
           <td>{{spec.SpecializationName}}</td>
           <td>
-            <button class="editBtn" style="margin-left: 38%; font-weight: bold;background-color: #37BEF7; color: rgb(255, 255, 255);" (click)="todayDoctor(spec.SpecializationCode)">View Doctors</button>
+            <button class="editBtn"
+              style="margin-left: 38%; font-weight: bold;background-color: #37BEF7; color: rgb(255, 255, 255);"
+              (click)="todayDoctor(spec.SpecializationCode)">View Doctors</button>
           </td>
         </tr>
       </ng-container>
@@ -22,7 +26,8 @@
   </div>
 </div>
 
-<div *ngIf="!(specialization.length > 0)" style="margin-bottom: 13%;">
+<div *ngIf="!(specialization.length > 0)">
   <br />
-  <h3 class="jumbotron" style="text-align: center; background-color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">No Specialization Available</h3>
+  <h3 class="jumbotron" style="text-align: center; background-color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    No Specialization Available</h3>
 </div>

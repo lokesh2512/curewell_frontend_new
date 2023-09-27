@@ -5,12 +5,97 @@
 // .footer-content span:hover{
 //     cursor: pointer;
 // }
-.btn{
+.btn {
 
     font-size: 25px;
 
 }
+
 .text-reset a i {
     color: black;
     padding: 10px;
+}
+
+/* Add a class for the sticky footer */
+/* Add a class for the sticky footer */
+.site-footer {
+    // margin-top: 50px;
+    // position: fixed;
+    // bottom: 0;
+    width: 100%;
+
+    padding: 48px 0;
+    background: url("../../../assets/images/footer-bg.png.webp") no-repeat center #fff;
+
+    background-size: cover;
+    font-size: 14px;
+    color: #828282;
+
+
+}
+
+.footer-widgets h2 {
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    margin-bottom: 24px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #404040;
+}
+
+.foot-about p {
+    font-size: 14px;
+    line-height: 2;
+}
+
+.foot-about p.copyright {
+    margin-top: 24px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.foot-contact ul {
+    list-style: none;
+}
+
+.foot-contact ul li {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.foot-contact ul li span {
+    display: inline-block;
+    color: #404040;
+}
+
+.foot-contact ul li span {
+    width: 64px;
+}
+
+.foot-links ul {
+    list-style: none;
+    column-count: 2;
+    column-gap: 10px;
+}
+
+.foot-links ul li {
+    margin-bottom: 5px;
+}
+
+.foot-links ul li a {
+    color: #828282;
+}
+
+.contact span a i {
+    padding: 10px;
+    font-size: 18px;
+
+}
+
+@media only screen and (max-width: 600px) {
+    .row {
+        margin-left: 0% !important;
+        margin-right: 0% !important;
+    }
 }
