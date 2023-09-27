@@ -18,7 +18,7 @@ export class AddDoctorComponent {
   ngOnInit(): void {
     this.name = this.route.snapshot.params['DoctorName']
       this.add = new FormGroup({
-      name: new FormControl(this.name, [Validators.required, Validators.minLength(3),Validators.pattern(this.regex)])
+      name: new FormControl(this.name, [Validators.required,Validators.pattern(this.regex), Validators.minLength(3)])
     });
   }
 

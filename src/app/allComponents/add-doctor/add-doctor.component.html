@@ -10,9 +10,9 @@
           [ngClass]="{error:(submitted || f['name'].touched) && f['name'].errors}"
           />
           <div *ngIf="submitted && f['name'].errors" class="text-danger small">
-            <span *ngIf="f['name'].errors?.['required']">Name Is Required</span>
-            <span *ngIf="f['name'].errors?.['minlength']">Name Must be greater then 3 Characters</span>
-            <span *ngIf="f['name'].errors?.['pattern']">Please enter valid Name</span>
+            <span *ngIf="f['name'].errors?.['required']">Name Is Required.</span>
+            <div *ngIf="f['name'].errors?.['pattern']">Please enter valid Name(only alphabets are allowed)</div>
+            <span *ngIf="f['name'].errors?.['minlength']  && !f['name'].errors?.['pattern']">Name Must be greater then 3 Characters.</span>
           </div>
           </div>
         </div>
