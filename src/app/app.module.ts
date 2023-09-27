@@ -15,7 +15,7 @@ import { UpdateDoctorComponent } from './allComponents/update-doctor/update-doct
 import { ViewSpecializationComponent } from './allComponents/view-specialization/view-specialization.component';
 import { ViewTodaysSurgeryComponent } from './allComponents/view-todays-surgery/view-todays-surgery.component';
 import { UpdateSurgeryComponent } from './allComponents/update-surgery/update-surgery.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms'
 //import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NewsSectionComponent } from './allComponents/news-section/news-section.component';
 import { LandingPageComponent } from './allComponents/landing-page/landing-page.component';
@@ -47,7 +47,6 @@ import { DoctorBySpecializationComponent } from './allComponents/doctor-by-speci
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-
     ReactiveFormsModule
 
 

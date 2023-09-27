@@ -13,6 +13,7 @@ export class NavBarComponent implements OnInit {
   LoginForm !: FormGroup;
   // SignUpform !: FormGroup;
   submitted: boolean = false;
+  showAlert: boolean = false;
   //submittedSign: boolean = false;
   passwordRegex: string = "^[(a-zA-Z_)+(0-9){2,2}]$";
   loginForm!: FormGroup;

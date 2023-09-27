@@ -23,7 +23,7 @@ export class ViewDoctorComponent implements OnInit {
     this._curewellService.getDoctor().subscribe(
       value => {
         this.doctorList = value;//putting the value in the doctor list array
-        console.log(this.doctorList);
+        //console.log(this.doctorList);
       },
       error => {
         this.doctorList = [];

@@ -8,7 +8,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
-        <span>
+        
           <li class="nav-item">
             <a class="nav-link active" [routerLink]="['']" routerLinkActive="router-link-active"
               data-ol-has-click-handler="">
@@ -16,31 +16,31 @@
               <span class="visually-hidden">(current)</span>
             </a>
           </li>
-        </span>
-        <span>
+        
+        
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['ViewDoctor']" routerLinkActive="router-link-active">View Doctors</a>
           </li>
-        </span>
-        <span>
+        
+        
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['Specialization']" routerLinkActive="router-link-active">View
               Specialisation</a>
           </li>
-        </span>
-        <span>
+        
+        
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['TodaySurgery']" routerLinkActive="router-link-active">View Today's
               surgery</a>
           </li>
-        </span>
-        <span>
+        
+        
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['AddingDoctor']" routerLinkActive="router-link-active">Add Doctor</a>
           </li>
-        </span>
+        
       </ul>
-      <div class="d-flex" style="justify-content: space-between">
+      <div class="d-flex asd" >
         <!-- <button class="button-gradient">
             <span><i class="bi-telephone-fill"></i></span>
             <span class="text-light">+34 586 778 8892</span>
@@ -50,6 +50,7 @@
             <img src="../../assets/images/emergency-call.png.webp" alt="img" />
             <a href="tel:+129-3345355454" style="text-decoration: none; color: white">+129-3345355454</a>
           </button>
+          
         </div>
         <div class="button">
           <button class="wpcf7-form-control btn2wpcf7-submit" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -100,13 +101,8 @@
               " class="text-danger small">
               <span *ngIf="f['passWord'].errors?.['required']">Password is required</span>
             </div>
-            <div *ngIf="
-                (submitted || f['passWord'].touched) && f['passWord'].errors
-              " class="text-danger small">
-              <span *ngIf="f['passWord'].errors?.['minlength'] || f['passWord'].errors?.['maxlength']">Password must be
-                of 8 characters</span>
-            </div>
-            <div *ngIf="
+            <div
+            *ngIf="
               (submitted || f['passWord'].touched) && f['passWord'].errors
             " class="text-danger small">
               <span *ngIf="f['passWord'].errors?.['pattern']">Invalid Password</span>
@@ -142,4 +138,8 @@
       </div>
     </div>
   </div>
+</div>
+
+<div>
+  
 </div>
