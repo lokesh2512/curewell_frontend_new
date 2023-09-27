@@ -15,30 +15,44 @@ export class AddDoctorComponent {
   regex:string = "^[a-zA-Z ]*$";
 
   constructor(private route: ActivatedRoute, private _cureWellService: CurewellService, private router: Router) { }
+  
   ngOnInit(): void {
-    this.name = this.route.snapshot.params['DoctorName']
+    try {
+      this.name = this.route.snapshot.params['DoctorName'];
       this.add = new FormGroup({
-      name: new FormControl(this.name, [Validators.required,Validators.pattern(this.regex), Validators.minLength(3)])
-    });
-  }
-
-  //To Add Doctor Details
-  addDoctor(doctorName: string) {
-    this.submitted = true;
-    if (this.add.get('name')?.valid) {
-      this._cureWellService.AddDoctor(this.name).subscribe(
-        value => {
-          if (value) {
-            //alert("Doctor Added Successfully :)")
-            this.router.navigate(['/ViewDoctor'])
-          }
-          else { alert('Doctor Added Successfully :)') }
-          this.router.navigate(['/ViewDoctor'])
-        }
-      )
+        name: new FormControl(this.name, [Validators.required,Validators.pattern(this.regex), Validators.minLength(3)])
+      });
+    } catch (error) {
+      console.error('An error occurred while initializing the form:', error);
     }
   }
-  get f(): { [key: string]: AbstractControl }{
+
+  // To Add Doctor Details
+  addDoctor(doctorName: string) {
+    this.submitted = true;
+    try {
+      if (this.add.get('name')?.valid) {
+        this._cureWellService.AddDoctor(this.name).subscribe(
+          value => {
+            if (value) {
+              // alert("Doctor Added Successfully :)")
+              this.router.navigate(['/ViewDoctor']);
+            } else { 
+              alert('Doctor Added Successfully :)');
+              this.router.navigate(['/ViewDoctor']);
+            }
+          },
+          error => {
+            console.error('An error occurred while adding the doctor:', error);
+          }
+        );
+      }
+    } catch (error) {
+      console.error('An error occurred while adding the doctor:', error);
+    }
+  }
+
+  get f(): { [key: string]: AbstractControl } {
     return this.add?.controls;
   }
 }

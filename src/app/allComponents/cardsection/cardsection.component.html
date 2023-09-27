@@ -71,7 +71,7 @@
             class="d-flex flex-wrap"
             style="justify-content: flex-start"
             [formGroup]="appointmentForm"
-            (ngSubmit)="OnSubmit()"
+            (ngSubmit)="OnSubmit(appointmentForm.controls['departMent'].value,appointmentForm.controls['Patientname'].value, appointmentForm.controls['ContactNumber'].value)"
           >
             <select
               class="select-department"
@@ -81,12 +81,14 @@
                   (submitted || f['departMent'].touched) &&
                   getControl('departMent').errors
               }"
+              id="departMent"
             >
               <option value="value1" [defaultSelected]="true" disabled>
                 Select Department
               </option>
-              <option value="value2">Select Department 1</option>
-              <option value="value3">Select Department 2</option>
+              <option value="Anesthesiologist">Anesthesiologist</option>
+              <option value="Cardiologist">Cardiologist</option>
+             <option value="Gynecologist">Gynecologist</option>
             </select>
             <div
               *ngIf="

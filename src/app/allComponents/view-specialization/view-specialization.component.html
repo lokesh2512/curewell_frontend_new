@@ -1,3 +1,7 @@
+<div *ngIf="showComponent">
+  <app-loader></app-loader>
+</div>
+<div *ngIf="!showComponent">
 <h2 align="center" style="margin-top: 2%;">View Specialization</h2>
 
 <div *ngIf="specialization.length > 0" class="body" style="margin-left: 10%;margin-right: 10%;margin-bottom: 13%;">
@@ -30,4 +34,5 @@
   <br />
   <h3 class="jumbotron" style="text-align: center; background-color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
     No Specialization Available</h3>
+</div>
 </div>

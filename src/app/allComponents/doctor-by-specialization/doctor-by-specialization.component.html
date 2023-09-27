@@ -1,3 +1,7 @@
+<div *ngIf="showComponent">
+  <app-loader></app-loader>
+</div>
+<div *ngIf="!showComponent">
 <h2 align="center" style="margin-top: 2%;">View Doctor</h2>
 
 <div class="body" style="margin-left: 10%; margin-right: 10%;" *ngIf="doctorList.length > 0">
@@ -28,5 +32,6 @@
 <div *ngIf="doctorList.length === 0">
   <br />
   <h3 class="jumbotron" style="text-align: center; background-color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">No Doctor Available</h3>
+</div>
 </div>
 

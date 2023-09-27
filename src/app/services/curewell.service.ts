@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { Specialization } from '../curewell-interfaces/specialization';
 import { Surgery } from '../curewell-interfaces/Surgery';
 import { DoctorSpecialization } from '../curewell-interfaces/doctorSpecialization';
+import { Appointment } from '../curewell-interfaces/appointment';
 
 @Injectable({
   providedIn: 'root'
@@ -25,72 +26,128 @@ export class CurewellService {
   }
   private authHeader!: HttpHeaders;
   login(emailId: string, password: string): Observable<any> {
-    console.log("login calling")
-    console.log(emailId, password)
-    const body = new HttpParams()
-      .set('username', emailId)
-      .set('password', password)
-      .set('grant_type', 'password');
-    return this.http.post(`${this.baseUrl}/token`, body);
+    try {
+      console.log("login calling");
+      console.log(emailId, password);
+      const body = new HttpParams()
+        .set('username', emailId)
+        .set('password', password)
+        .set('grant_type', 'password');
+      return this.http.post(`${this.baseUrl}/token`, body);
+    } catch (error) {
+      console.error('Error in login:', error);
+      throw error; // Rethrow the error for the caller to handle
+    }
   }
-
-  // getRole(): Observable<any> {
-  //   //let authorizeData = 'Bearer ' + sessionStorage.getItem("token");
-
-  //   this.header = new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //     'Authorization': 'Bearer ' + sessionStorage.getItem("token")
-  //   })
-
-  //   return this.http.get(`${this.baseUrl}/api/accounts/getrole`, { headers: this.header });
-  // }
-
-
-
 
   //get Doctor
   getDoctor(): Observable<Doctor[]> {
-    console.log(this.authorizeData)
-    return this.http.get<Doctor[]>('http://localhost:61538/api/home/getalldoctors', { headers: this.authHeader });
+    try {
+      console.log(this.authorizeData);
+      return this.http.get<Doctor[]>('https://localhost:44322/api/CureWell/GetDoctor');
+    } catch (error) {
+      console.error('Error in getDoctor:', error);
+      throw error;
+    }
   }
 
 
   //Update Doctor
   updateDoctor(doctorid: number, doctorName: string): Observable<boolean> {
-    var doctor: Doctor;
-    doctor = { DoctorId: doctorid, DoctorName: doctorName };
-    return this.http.put<boolean>('http://localhost:61538/api/home/updatedoctor', doctor);
+    try {
+      var doctor: Doctor;
+      doctor = { DoctorId: doctorid, DoctorName: doctorName };
+      return this.http.put<boolean>('https://localhost:44322/api/CureWell/UpdateDoctorDetails', doctor);
+    }
+    catch (error) {
+      console.error('Error in updateDoctor:', error);
+      throw error;
+    }
   }
 
 
 
   //get Specialization
   getSpecialization(): Observable<Specialization[]> {
-    return this.http.get<Specialization[]>('http://localhost:61538/api/home/getspecializations');
+    try {
+      return this.http.get<Specialization[]>('https://localhost:44322/api/CureWell/GetSpecialization');
+    }
+    catch (error) {
+      console.error('Error in getSpecialization:', error);
+      throw error;
+    }
+  }
+
+  //Get All Appointments
+  getAppointment(): Observable<Appointment[]>{
+    try {
+      return this.http.get<Appointment[]>('https://localhost:44322/api/CureWell/getappointment');
+    }
+    catch (error) {
+      console.error('Error in getAppointment:', error);
+      throw error;
+    }
   }
 
   //get Specialization by code
   getDoctorBySpecialization(code: string): Observable<DoctorSpecialization[]> {
     //const params = new HttpParams().set('code', code);
-    return this.http.get<DoctorSpecialization[]>('http://localhost:61538/api/home/specializationcode' + code);
+    try {
+      return this.http.get<DoctorSpecialization[]>('https://localhost:44322/api/CureWell/GetDoctorBySpecialization/' + code);
+    }
+    catch (error) {
+      console.error('Error in getDoctorBySpecialization:', error);
+      throw error;
+    }
   }
 
   //GET All Surgery For Today
   getSurgery(): Observable<Surgery[]> {
-    return this.http.get<Surgery[]>('http://localhost:61538/api/home/surgerytypefortoday');
+    try {
+      return this.http.get<Surgery[]>('https://localhost:44322/api/CureWell/GetSurgeryType');
+    }
+    catch (error) {
+      console.error('Error in getSurgery:', error);
+      throw error;
+    }
   }
 
   //Update Todays Surgery
   UpdateSurgery(doctorId: number, endTime: number, startTime: number, surgeryCategory: string, surgeryDate: Date, surgeryId: number): Observable<boolean> {
-    var surgery: Surgery;
-    surgery = { DoctorId: doctorId, EndTime: endTime, StartTime: startTime, SurgeryCategory: surgeryCategory, SurgeryDate: surgeryDate, SurgeryId: surgeryId };
-    return this.http.put<boolean>('http://localhost:61538/api/home/updatesurgery', surgery);
+    try {
+      var surgery: Surgery;
+      surgery = { DoctorId: doctorId, EndTime: endTime, StartTime: startTime, SurgeryCategory: surgeryCategory, SurgeryDate: surgeryDate, SurgeryId: surgeryId };
+      return this.http.put<boolean>('https://localhost:44322/api/CureWell/UpdateSurgery', surgery);
+    }
+    catch (error) {
+      console.error('Error in UpdateSurgery:', error);
+      throw error;
+    }
   }
 
   //Add Doctor
   AddDoctor(doctorName: string): Observable<boolean> {
-    var doctor: Doctor;
-    doctor = { DoctorId: 0, DoctorName: doctorName };
-    return this.http.post<boolean>('http://localhost:61538/api/home/adddoctor', doctor);
+    try {
+      var doctor: Doctor;
+      doctor = { DoctorId: 0, DoctorName: doctorName };
+      return this.http.post<boolean>('https://localhost:44322/api/CureWell/AddDoctor', doctor);
+    }
+    catch (error) {
+      console.error('Error in AddDoctor:', error);
+      throw error;
+    }
+  }
+
+  //Add Appointment
+  AddAppointment(department: string, username: string, phone: string) {
+    try {
+      var appointment: Appointment;
+      appointment = { AppointmentId: 0, Department: department, UserName: username, PhoneNumber: phone };
+      return this.http.post<boolean>('https://localhost:44322/api/CureWell/addappointment', appointment);
+    }
+    catch (error) {
+      console.error('Error in AddAppointment:', error);
+      throw error;
+    }
   }
 }

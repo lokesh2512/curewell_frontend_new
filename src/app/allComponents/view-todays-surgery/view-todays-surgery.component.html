@@ -1,7 +1,11 @@
+<div *ngIf="showComponent">
+  <app-loader></app-loader>
+</div>
+<div *ngIf="!showComponent">
 <div class="container" style="margin-top: 2%;">
   <h2 align="center">View Today's Surgery</h2>
   <div class="body" *ngIf="surgery.length > 0">
-    <div class="table-responsive" style="max-height: 400px; overflow: auto;">
+    <div class="table-responsive" style="max-height: 100%-300vh; overflow: auto;">
       <table class="table table-bordered" style="border: 2px solid rgb(0, 0, 0);">
           <tr style="position: sticky;border: 2px solid rgb(0, 0, 0); top: 0; background-color: #ffffff !important; font-size: 12pt">
             <th>Surgery Id</th>
@@ -33,4 +37,5 @@
     <br />
     <div class="jumbotron text-center" style="background-color: white;">No Surgery Details Available</div>
   </div>
+</div>
 </div>

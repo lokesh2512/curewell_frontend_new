@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CurewellService } from 'src/app/services/curewell.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -13,7 +15,8 @@ export class CardsectionComponent implements OnInit {
   showAlert = false;
   mobileNoRegex: string = "^[0-9]*$";
 
-  constructor(private fb: FormBuilder) { }
+
+  constructor(private fb: FormBuilder, private _cureWellService: CurewellService, private router: Router) { }
 
 
   ngOnInit(): void {
@@ -26,8 +29,10 @@ export class CardsectionComponent implements OnInit {
     })
 
 
+    //Adding Appointment
+
   }
-  OnSubmit() {
+  OnSubmit(department: string, name: string, phone: string) {
     this.submitted = true;
     console.log(this.appointmentForm);
     if(this.appointmentForm.invalid){
@@ -38,7 +43,20 @@ export class CardsectionComponent implements OnInit {
       Swal.fire("Thank You....", 'Appointment Confirmed Successfully', 'success')
     }
 
-    
+    //Adding Appointment
+
+    this._cureWellService.AddAppointment(department, name, phone).subscribe(
+      value => {
+        if (value) {
+          // alert("Doctor Added Successfully :)")
+          console.log("Added Appointment");
+        } else { 
+        }
+      },
+      error => {
+        console.error('An error occurred while adding the doctor:', error);
+      }
+    )
     
 
   }
