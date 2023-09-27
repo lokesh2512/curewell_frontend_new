@@ -8,13 +8,13 @@
             border: 3px solid;
             border-radius: 20px;
             margin-top: 10px;
-            height: 350px;
+            height: 300px;
           "
         >
-          <div class="card-title" style="margin-top: 40px">
+          <div class="card-title" style="margin-top: 20px">
             <h4>Opening Hours</h4>
           </div>
-          <div class="card-body">
+          <div class="card-body" id="timeCard">
             <ul class="p-0 m-0 text-dark">
               <li>Monday<span>8.00 - 19.00</span></li>
               <li>Tueday<span>8.00 - 19.00</span></li>
@@ -34,10 +34,10 @@
             border-bottom-left-radius: 30px;
             margin-top: 10px;
 
-            height: 350px;
+            height: 300px;
           "
         >
-          <div class="card-title" style="margin-top: 30px">
+          <div class="card-title" style="margin-top: 20px">
             <h3>Emergency</h3>
           </div>
           <div class="card-body text-center">
@@ -55,10 +55,10 @@
               </span>
             </button>
             <div>
-              <p class="text-dark mt-3" style="text-align: center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Exercitationem quidem inventore neque error? Quam necessitatibus
-                tempora nam totam,
+              <p class="text-dark mt-3" style="text-align: left">
+                For Emergency services Kindly contact to above number. Feel free to reach out to us.
+                <br>
+                For more deatils react at - cureWell@gmail.org for more deatils
               </p>
             </div>
           </div>
@@ -98,28 +98,7 @@
                 >Department is required</span
               >
             </div>
-            <select
-              class="select-doctor"
-              formControlName="doctor"
-              [ngClass]="{
-                error:
-                  (submitted || f['doctor'].touched) &&
-                  getControl('doctor').errors
-              }"
-            >
-              <option [defaultSelected]="true" disabled>Select Doctor</option>
-              <option>Select Doctor 1</option>
-              <option>Select Doctor 2</option>
-            </select>
-
-            <div
-              *ngIf="(submitted || f['doctor'].touched) && f['doctor'].errors"
-              class="text-danger small"
-            >
-              <span *ngIf="f['doctor'].errors?.['required']"
-                >Doctor is required</span
-              >
-            </div>
+       
             <input
               type="text"
               placeholder="Name"
