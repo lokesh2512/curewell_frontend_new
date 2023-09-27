@@ -19,7 +19,7 @@ export class CardsectionComponent implements OnInit {
   ngOnInit(): void {
     this.appointmentForm = this.fb.group({
       departMent: [null, [Validators.required]],
-      doctor: [null, [Validators.required]],
+      //doctor: [null, [Validators.required]],
       Patientname: [null, [Validators.required, Validators.minLength(4)]],
       ContactNumber: [null, [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(this.mobileNoRegex)]]
 
