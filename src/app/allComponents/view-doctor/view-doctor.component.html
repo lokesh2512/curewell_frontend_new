@@ -1,7 +1,7 @@
 <h2 align="center" style="margin-top: 2%;">View Doctor</h2>
 
 <div class="body" style="margin-left: 10%; margin-right: 10%;" *ngIf="doctorList.length > 0">
-  <div class="table-responsive" style="max-height: 400px; overflow: auto;">
+  <div class="table-responsive" style="max-height: fit-content; overflow: none;">
     <table class="table" style="border: 2px solid rgb(0, 0, 0); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
       <thead style="position: sticky; top: 0; font-size: 12pt">
         <tr class="view-doctor-head">
@@ -15,7 +15,8 @@
           <td>{{doctor.DoctorId}}</td>
           <td>{{doctor.DoctorName}}</td>
           <td>
-            <button class="editBtn" style="margin-left: 40%;background-color: #37BEF7; color: white;" (click)="EditDoctor(doctor)">Edit Doctor Details</button>
+            <button class="editBtn" style="margin-left: 40%;background-color: #37BEF7; color: white;"
+              (click)="EditDoctor(doctor)">Edit Doctor Details</button>
           </td>
         </tr>
       </tbody>
@@ -25,5 +26,6 @@
 
 <div *ngIf="doctorList.length === 0">
   <br />
-  <h3 class="jumbotron" style="text-align: center; background-color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">No Doctor Available</h3>
+  <h3 class="jumbotron" style="text-align: center; background-color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    No Doctor Available</h3>
 </div>

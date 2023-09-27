@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Doctor } from '../curewell-interfaces/doctor';
-import { HttpClient, HttpParams, HttpStatusCode } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpStatusCode } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { Specialization } from '../curewell-interfaces/specialization';
 import { Surgery } from '../curewell-interfaces/Surgery';
@@ -11,12 +11,47 @@ import { DoctorSpecialization } from '../curewell-interfaces/doctorSpecializatio
 })
 export class CurewellService {
   doctorList: Doctor[] | undefined;
+  private header!: HttpHeaders;
+  private authorizeData: string | null;
+  private baseUrl = "http://localhost:61538";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.authorizeData = 'Bearer ' + sessionStorage.getItem('token');
+
+    this.authHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.authorizeData || '', // Use an empty string if authorizeData is null
+    });
+  }
+  private authHeader!: HttpHeaders;
+  login(emailId: string, password: string): Observable<any> {
+    console.log("login calling")
+    console.log(emailId, password)
+    const body = new HttpParams()
+      .set('username', emailId)
+      .set('password', password)
+      .set('grant_type', 'password');
+    return this.http.post(`${this.baseUrl}/token`, body);
+  }
+
+  // getRole(): Observable<any> {
+  //   //let authorizeData = 'Bearer ' + sessionStorage.getItem("token");
+
+  //   this.header = new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //     'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+  //   })
+
+  //   return this.http.get(`${this.baseUrl}/api/accounts/getrole`, { headers: this.header });
+  // }
+
+
+
 
   //get Doctor
   getDoctor(): Observable<Doctor[]> {
-    return this.http.get<Doctor[]>('http://localhost:61538/api/home/getalldoctors');
+    console.log(this.authorizeData)
+    return this.http.get<Doctor[]>('http://localhost:61538/api/home/getalldoctors', { headers: this.authHeader });
   }
 
 

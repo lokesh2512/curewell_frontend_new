@@ -41,10 +41,6 @@ import { DoctorBySpecializationComponent } from './allComponents/doctor-by-speci
     NewsSectionComponent,
     LandingPageComponent,
     DoctorBySpecializationComponent,
-
-
-
-
   ],
   imports: [
     BrowserModule,
