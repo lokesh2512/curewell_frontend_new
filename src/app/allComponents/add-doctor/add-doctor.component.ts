@@ -9,33 +9,45 @@ import { CurewellService } from 'src/app/services/curewell.service';
   styleUrls: ['./add-doctor.component.scss']
 })
 export class AddDoctorComponent {
-  name: string = "";
-  submitted: boolean = false;
-  add!: FormGroup;
-  regex:string = "^[a-zA-Z ]*$";
+  name: string = ""; // Initialize the doctor's name
+  submitted: boolean = false; // Flag to track whether the form has been submitted
+  add!: FormGroup; // Initialize the form group
+  regex:string = "^[a-zA-Z ]*$"; // Regular expression for validating the name
 
-  constructor(private route: ActivatedRoute, private _cureWellService: CurewellService, private router: Router) { }
+  constructor(
+    private route: ActivatedRoute,
+    private _cureWellService: CurewellService,
+    private router: Router
+  ) { }
   
   ngOnInit(): void {
     try {
+      // Get the doctor's name from the route parameters
       this.name = this.route.snapshot.params['DoctorName'];
+      
+      // Initialize the form group with validators
       this.add = new FormGroup({
-        name: new FormControl(this.name, [Validators.required,Validators.pattern(this.regex), Validators.minLength(3)])
+        name: new FormControl(this.name, [
+          Validators.required, // Name is required
+          Validators.pattern(this.regex), // Name should match the given regex
+          Validators.minLength(3) // Name should be at least 3 characters long
+        ])
       });
     } catch (error) {
       console.error('An error occurred while initializing the form:', error);
     }
   }
 
-  // To Add Doctor Details
+  // Function to add doctor details
   addDoctor(doctorName: string) {
-    this.submitted = true;
+    this.submitted = true; // Set the submitted flag to true
     try {
       if (this.add.get('name')?.valid) {
+        // If the name input is valid, send a request to add the doctor
         this._cureWellService.AddDoctor(this.name).subscribe(
           value => {
             if (value) {
-              // alert("Doctor Added Successfully :)")
+              // Success: Redirect to the ViewDoctor page
               this.router.navigate(['/ViewDoctor']);
             } else { 
               alert('Doctor Added Successfully :)');
@@ -52,6 +64,7 @@ export class AddDoctorComponent {
     }
   }
 
+  // Helper function to access form controls
   get f(): { [key: string]: AbstractControl } {
     return this.add?.controls;
   }

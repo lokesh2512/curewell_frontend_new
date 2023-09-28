@@ -1,13 +1,18 @@
 <div *ngIf="showComponent">
+  <!-- Display a loader component when 'showComponent' is true -->
   <app-loader></app-loader>
 </div>
 <div *ngIf="!showComponent">
-<div class="container" style="margin-top: 2%;">
-  <h2 align="center">View Today's Surgery</h2>
-  <div class="body" *ngIf="surgery.length > 0">
-    <div class="table-responsive" style="max-height: 100%-300vh; overflow: auto;">
-      <table class="table table-bordered" style="border: 2px solid rgb(0, 0, 0);">
-          <tr style="position: sticky;border: 2px solid rgb(0, 0, 0); top: 0; background-color: #ffffff !important; font-size: 12pt">
+  <!-- Display the surgery list when 'showComponent' is false -->
+  <div class="container" style="margin-top: 2%;">
+    <h2 align="center">View Today's Surgery</h2>
+    <div class="body" *ngIf="surgery.length > 0">
+      <!-- Display a responsive table when there are surgery details -->
+      <div class="table-responsive" style="max-height: 100%-300vh; overflow: auto;">
+        <!-- Create a table to display surgery details -->
+        <table class="table table-bordered" style="border: 2px solid rgb(0, 0, 0);">
+          <tr
+            style="position: sticky;border: 2px solid rgb(0, 0, 0); top: 0; background-color: #ffffff !important; font-size: 12pt">
             <th>Surgery Id</th>
             <th>Doctor Id</th>
             <th>Surgery Date</th>
@@ -16,6 +21,7 @@
             <th>Surgery Category</th>
             <th>Action</th>
           </tr>
+          <!-- Loop through each surgery record and display its details -->
           <tr *ngFor="let sur of surgery;">
             <td>{{sur.SurgeryId}}</td>
             <td>{{sur.DoctorId}}</td>
@@ -23,19 +29,22 @@
             <td>{{sur.EndTime}}</td>
             <td>{{sur.StartTime}}</td>
             <td>
+              <!-- Display surgery category if available, otherwise indicate it as "Not Available" -->
               <span *ngIf="sur.SurgeryCategory" class="category-cell">{{sur.SurgeryCategory}}</span>
               <span *ngIf="!sur.SurgeryCategory" class="category-cell">Not Available</span>
             </td>
             <td>
+              <!-- Button to edit surgery time for the selected surgery -->
               <button class="editBtn" (click)="editSurgeryTime(sur)" style="background-color:#37BEF7; color: rgb(255, 255, 255)">Edit Surgery Time</button>
             </td>
           </tr>
-      </table>
+        </table>
+      </div>
+    </div>
+    <div *ngIf="!(surgery.length > 0)">
+      <br />
+      <!-- Display a message when there are no surgery details available -->
+      <div class="jumbotron text-center" style="background-color: white;">No Surgery Details Available</div>
     </div>
   </div>
-  <div *ngIf="!(surgery.length > 0)">
-    <br />
-    <div class="jumbotron text-center" style="background-color: white;">No Surgery Details Available</div>
-  </div>
-</div>
 </div>

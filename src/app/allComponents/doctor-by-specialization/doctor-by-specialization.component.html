@@ -1,37 +1,46 @@
+<!-- Conditionally display a loader component if showComponent is true -->
 <div *ngIf="showComponent">
   <app-loader></app-loader>
 </div>
-<div *ngIf="!showComponent">
-<h2 align="center" style="margin-top: 2%;">View Doctor</h2>
 
-<div class="body" style="margin-left: 10%; margin-right: 10%;" *ngIf="doctorList.length > 0">
-  <div class="table-responsive" style="max-height: 400px; overflow: auto;">
-    <table class="table" style="border: 2px solid rgb(0, 0, 0); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-      <thead style="position: sticky; top: 0; font-size: 12pt">
-        <tr class="view-doctor-head">
-          <th>Doctor Id</th>
-          <th>Specialization Code</th>
-          <th>Specialization Date</th>
-          <th style="text-align: center" colspan="2">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let doctor of doctorList; let i = index">
-          <td>{{doctor.DoctorId}}</td>
-          <td>{{doctor.SpecializationCode}}</td>
-          <td>{{doctor.SpecializationDate | date: "dd/MM/yyyy"}}</td>
-          <td>
-            <button class="editBtn" style="margin-left: 40%;background-color: #37BEF7; color: white;" [routerLink]="['/Specialization']" routerLinkActive="router-link-active" >Back</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<!-- Conditionally display the main content if showComponent is false -->
+<div *ngIf="!showComponent">
+  <!-- Main title for the "View Doctor" section -->
+  <h2 align="center" style="margin-top: 2%;">View Doctor</h2>
+
+  <!-- Body section for displaying the list of doctors -->
+  <div class="body" style="margin-left: 10%; margin-right: 10%;" *ngIf="doctorList.length > 0">
+    <!-- Responsive table for displaying doctor information -->
+    <div class="table-responsive" style="max-height: 400px; overflow: auto;">
+      <table class="table" style="border: 2px solid rgb(0, 0, 0); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <!-- Table header -->
+        <thead style="position: sticky; top: 0; font-size: 12pt">
+          <tr class="view-doctor-head">
+            <th>Doctor Id</th>
+            <th>Specialization Code</th>
+            <th>Specialization Date</th>
+            <th style="text-align: center" colspan="2">Action</th>
+          </tr>
+        </thead>
+        <!-- Table body with doctor data -->
+        <tbody>
+          <tr *ngFor="let doctor of doctorList; let i = index">
+            <td>{{doctor.DoctorId}}</td>
+            <td>{{doctor.SpecializationCode}}</td>
+            <td>{{doctor.SpecializationDate | date: "dd/MM/yyyy"}}</td>
+            <td>
+              <!-- Button to navigate to the Specialization page -->
+              <button class="editBtn" style="margin-left: 40%;background-color: #37BEF7; color: white;" [routerLink]="['/Specialization']" routerLinkActive="router-link-active" >Back</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Display a message if there are no doctors available -->
+  <div *ngIf="doctorList.length === 0">
+    <br />
+    <h3 class="jumbotron" style="text-align: center; background-color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">No Doctor Available</h3>
   </div>
 </div>
-
-<div *ngIf="doctorList.length === 0">
-  <br />
-  <h3 class="jumbotron" style="text-align: center; background-color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">No Doctor Available</h3>
-</div>
-</div>
-

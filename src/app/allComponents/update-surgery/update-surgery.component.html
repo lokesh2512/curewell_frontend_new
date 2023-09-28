@@ -1,55 +1,72 @@
 <div class="container" align="center">
+  <!-- Card for updating surgery information -->
   <div class="card" style="margin-top: 2%; margin-left: 15%; margin-right: 15%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
     <div class="card-body">
+      <!-- Title for the surgery update section -->
       <h2 class="card-title" style="color:rgb(25, 116, 161);">Update Surgery</h2>
+      <!-- Horizontal rule for separation -->
       <hr style="border-color: rgb(25, 116, 161); margin-top: 0.5rem; margin-bottom: 1rem;">
+
+      <!-- Form for updating surgery information -->
       <form [formGroup]="form">
         <div class="row">
+          <!-- Empty column for layout spacing -->
           <div class="col-md-4"></div>
+
+          <!-- Column for surgery details -->
           <div class="col-md-4">
+            <!-- Input field for displaying and readonly Surgery Id -->
             <div class="form-group">
               <label for="surgeryId">Surgery Id</label>
               <input type="text" name="surgeryId" [value]="surgeryId" class="form-control qkinput" readonly>
             </div>
+            <!-- Input field for displaying and readonly Doctor Id -->
             <div class="form-group">
               <label for="doctorId">Doctor Id</label>
               <input type="text" name="doctorId" [value]="doctorId" class="form-control qkinput" readonly>
             </div>
+            <!-- Input field for displaying and readonly Surgery Date -->
             <div class="form-group">
               <label for="surgeryDate">Surgery Date</label>
               <input type="text" name="surgeryDate" [value]="surgeryDate" class="form-control qkinput" readonly [value]="surgeryDate | date:'dd/MM/yyyy'">
             </div>
+
+            <!-- Input field for updating Start Time (24 Hours Format) -->
             <div class="form-group">
               <label for="startTime">Start Time (24 Hours Format)</label>
               <input type="text" name="startTime" [(ngModel)]="startTime" class="form-control qkinput" required formControlName="startTime"
-              [ngClass]="{
-                error:(submitted || f['startTime'].touched) && f['startTime'].errors
-            }">
-            <div *ngIf="submitted && f['startTime'].errors" class="text-danger small">
-              <span *ngIf="f['startTime'].errors?.['min']">StartTime Of Surgery Should Be Greater Then 0</span>
-              <span *ngIf="f['startTime'].errors?.['max']">StartTime Of Surgery Should Be Less Then 24</span>
+                [ngClass]="{
+                  error:(submitted || f['startTime'].touched) && f['startTime'].errors
+              }">
+              <!-- Error messages for Start Time input -->
+              <div *ngIf="submitted && f['startTime'].errors" class="text-danger small">
+                <span *ngIf="f['startTime'].errors?.['min']">Start Time Of Surgery Should Be Greater Than 0</span>
+                <span *ngIf="f['startTime'].errors?.['max']">Start Time Of Surgery Should Be Less Than 24</span>
+              </div>
             </div>
 
-            </div>
+            <!-- Input field for updating End Time (24 Hours Format) -->
             <div class="form-group">
               <label for="endTime">End Time (24 Hours Format)</label>
               <input type="text" name="endTime" [(ngModel)]="endTime" class="form-control qkinput" required formControlName="endTime"
-              [ngClass]="{
-                error:(submitted || f['endTime'].touched) && f['endTime'].errors
-            }">
-
+                [ngClass]="{
+                  error:(submitted || f['endTime'].touched) && f['endTime'].errors
+              }">
+              <!-- Error messages for End Time input -->
               <div *ngIf="submitted && f['endTime'].errors" class="text-danger small">
                 <span *ngIf="f['endTime'].errors?.['invalidTimeRange']">End Time should be greater than Start Time.</span>
-                <span *ngIf="f['endTime'].errors?.['min']">EndTime Of Surgery Should Be Greater Then 0</span>
-                <span *ngIf="f['endTime'].errors?.['max']">EndTime Of Surgery Should Be Less Then 24</span>
+                <span *ngIf="f['endTime'].errors?.['min']">End Time Of Surgery Should Be Greater Than 0</span>
+                <span *ngIf="f['endTime'].errors?.['max']">End Time Of Surgery Should Be Less Than 24</span>
               </div>
-              
+            </div>
 
-              </div>
+            <!-- Input field for displaying and readonly Surgery Category -->
             <div class="form-group">
               <label for="surgeryCategory">Surgery Category</label>
               <input type="text" name="surgeryCategory" [value]="surgeryCategory" class="form-control qkinput" readonly>
             </div>
+
+            <!-- Buttons for updating and canceling the surgery update operation -->
             <div class="form-group text-center" style="margin-top: 2%;">
               <button type="submit" (click)="updateSurgery(startTime, endTime)" class="btn" style="  margin-right: 2%;background-color: #2724AC; opacity: 0.78; color: white;">Update</button>
               <button routerLink="/TodaySurgery" class="btn" style="background-color: #2724AC; opacity: 0.78; color: white;">Cancel</button>

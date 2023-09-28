@@ -1,31 +1,41 @@
+<!-- Conditional rendering: Display a loader component if showComponent is true -->
 <div *ngIf="showComponent">
-    <app-loader></app-loader>
-  </div>
-  <div *ngIf="!showComponent">
-<div class="container" style="margin-top: 2%">
+  <app-loader></app-loader>
+</div>
+
+<!-- Conditional rendering: Display the main content if showComponent is false -->
+<div *ngIf="!showComponent">
+  <div class="container" style="margin-top: 2%;">
+    <!-- Main title for the "View Today's Appointment" section -->
     <h2 align="center">View Today's Appointment</h2>
-    <div class="body" style="width:80%;margin-left: 10%;" *ngIf="appointment.length>0">
+    
+    <!-- Body section for displaying the list of appointments -->
+    <div class="body" style="width:80%;margin-left: 10%;" *ngIf="appointment.length > 0">
+      <!-- Responsive table for displaying appointment information -->
       <div class="table-responsive" style="max-height: 100%-300rem; overflow: auto;">
         <table class="table table-bordered" style="border: 2px solid rgb(0, 0, 0);">
-            <tr style="position: sticky;border: 2px solid rgb(0, 0, 0); top: 0; background-color: #ffffff !important; font-size: 12pt">
-              <th>Appointment Id</th>
-              <th>Department</th>
-              <th>UserName</th>
-              <th>Phone Number</th>
-            </tr>
-            <tr *ngFor="let app of appointment">
-                <td>{{app.AppointmentId}}</td>
-                <td>{{app.Department}}</td>
-                <td>{{app.UserName}}</td>
-                <td>{{app.PhoneNumber}}</td>
-            </tr>
+          <!-- Table header -->
+          <tr style="position: sticky; border: 2px solid rgb(0, 0, 0); top: 0; background-color: #ffffff !important; font-size: 12pt">
+            <th>Appointment Id</th>
+            <th>Department</th>
+            <th>UserName</th>
+            <th>Phone Number</th>
+          </tr>
+          <!-- Table rows for each appointment -->
+          <tr *ngFor="let app of appointment">
+            <td>{{app.AppointmentId}}</td>
+            <td>{{app.Department}}</td>
+            <td>{{app.UserName}}</td>
+            <td>{{app.PhoneNumber}}</td>
+          </tr>
         </table>
       </div>
     </div>
-    <div *ngIf="appointment.length==0">
+    
+    <!-- Display a message if there are no appointments available -->
+    <div *ngIf="appointment.length == 0">
       <br />
       <div class="jumbotron text-center" style="background-color: white;">No Surgery Details Available</div>
     </div>
   </div>
-  </div>
-  
+</div>
